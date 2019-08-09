@@ -7,7 +7,8 @@
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint '**/*.js' --fix"
+    "lint": "eslint '**/*.js' --fix",
+    "test": "tap test/**/*.test.js"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -29,6 +30,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
+    "tap": "^14.6.1",
     "yorkie": "^2.0.0"
   },
   "dependencies": {

@@ -1,0 +1,16 @@
+image: node:10
+
+cache:
+  paths:
+  - node_modules/
+
+stages:
+  - test
+
+test_async:
+  stage: test
+  script:
+   - yarn install
+   - yarn test
+  # tags:
+  #   - docker
