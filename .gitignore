@@ -3,3 +3,4 @@
 /.vscode
 .env
 /.nyc_output
+/coverage

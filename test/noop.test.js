@@ -1,6 +1,6 @@
 const tap = require('tap')
 
-tap.test('NOOP', t => {
-  t.plan(1)
-  t.strictEqual(true, true)
+tap.test('Test Setup', t => {
+  t.strictEqual(true, true, 'Tests and assertions should work')
+  t.end()
 })
