@@ -38,6 +38,7 @@
     "fastify-oas": "^2.3.1",
     "fastify-plugin": "^1.6.0",
     "fastify-sensible": "^2.1.1",
-    "read-pkg-up": "^6.0.0"
+    "read-pkg-up": "^6.0.0",
+    "under-pressure": "^3.1.0"
   }
 }

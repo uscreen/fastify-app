@@ -7,10 +7,9 @@ const helmet = require('fastify-helmet')
 const sensible = require('fastify-sensible')
 const oas = require('fastify-oas')
 const autoload = require('fastify-autoload')
+const underPressure = require('under-pressure')
 
 module.exports = fp(async (fastify, config, next) => {
-  console.log(config)
-
   /**
    * read package information
    */
@@ -63,6 +62,22 @@ module.exports = fp(async (fastify, config, next) => {
   }
 
   /**
+   * add healthcheck
+   */
+  fastify.register(
+    underPressure,
+    Object.assign(
+      {
+        maxEventLoopDelay: 1000,
+        maxHeapUsedBytes: 128 * 1024 * 1024,
+        maxRssBytes: 256 * 1024 * 1024,
+        retryAfter: 50
+      },
+      config.healthCheck
+    )
+  )
+
+  /**
    * post-treatment
    */
   fastify.ready(err => {
@@ -70,6 +85,9 @@ module.exports = fp(async (fastify, config, next) => {
     fastify.log.debug(
       `${fastify.name} (${fastify.version}) ready. pwd: ${fastify.root}`
     )
+
+    // re-read routes for OpenAPI docs
+    fastify.oas()
   })
 
   next()

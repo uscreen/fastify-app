@@ -2495,6 +2495,13 @@ type-is@^1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+under-pressure@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/under-pressure/-/under-pressure-3.1.0.tgz#d4870dfcc37aef0691db1faa2643ea5dd2a40497"
+  integrity sha512-hiHaVXpeR7DPWVkbclqyf71PMXzU6JKTDcYJgmmobiKWsvt8xCsuWD7yPXEfOtlJJ14tmc72c5f3qzCuZnk3AQ==
+  dependencies:
+    fastify-plugin "^1.5.0"
+
 uri-js@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
