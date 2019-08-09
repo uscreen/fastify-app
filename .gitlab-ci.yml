@@ -11,6 +11,6 @@ test:
   stage: test
   script:
     - yarn install
-    - yarn test
+    - yarn test:ci
   tags:
     - docker
