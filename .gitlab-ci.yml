@@ -2,7 +2,7 @@ image: node:10
 
 cache:
   paths:
-  - node_modules/
+    - node_modules/
 
 stages:
   - test
@@ -10,7 +10,7 @@ stages:
 test:
   stage: test
   script:
-   - yarn install
-   - yarn test
+    - yarn install
+    - yarn test
   tags:
     - docker
