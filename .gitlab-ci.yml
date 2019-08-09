@@ -7,10 +7,10 @@ cache:
 stages:
   - test
 
-test_async:
+test:
   stage: test
   script:
    - yarn install
    - yarn test
-  # tags:
-  #   - docker
+  tags:
+    - docker
