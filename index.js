@@ -3,6 +3,7 @@
 const path = require('path')
 const readPkgUp = require('read-pkg-up')
 const fp = require('fastify-plugin')
+const helmet = require('fastify-helmet')
 
 module.exports = fp(async (fastify, opts, next) => {
   /**
@@ -21,6 +22,15 @@ module.exports = fp(async (fastify, opts, next) => {
   for (const [k, v] of Object.entries(pkg)) {
     fastify.decorate(k, v)
   }
+
+  /**
+   * add helmet (http security headers)
+   */
+  fastify.register(helmet, {
+    hidePoweredBy: {
+      setTo: `${fastify.name} ${fastify.version}`
+    }
+  })
 
   /**
    * post-treatment

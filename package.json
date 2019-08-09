@@ -32,6 +32,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
+    "fastify-helmet": "^3.0.1",
     "fastify-plugin": "^1.6.0",
     "read-pkg-up": "^6.0.0"
   }
