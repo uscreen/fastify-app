@@ -12,5 +12,4 @@ test:
   script:
     - yarn install
     - yarn test:ci
-  tags:
-    - docker
+  coverage: '/^Statements\s*:\s*([^%]+)/'
