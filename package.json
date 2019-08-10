@@ -37,6 +37,8 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
+    "assign-deep": "^1.0.1",
+    "env-schema": "^1.0.0",
     "fastify": "^2.7.1",
     "fastify-autoload": "^1.0.0",
     "fastify-helmet": "^3.0.1",

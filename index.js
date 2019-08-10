@@ -1,5 +1,6 @@
 'use strict'
 
+const fs = require('fs')
 const path = require('path')
 const readPkgUp = require('read-pkg-up')
 const fp = require('fastify-plugin')
@@ -8,8 +9,16 @@ const sensible = require('fastify-sensible')
 const oas = require('fastify-oas')
 const autoload = require('fastify-autoload')
 const underPressure = require('under-pressure')
+const assign = require('assign-deep')
 
-module.exports = fp(async (fastify, config, next) => {
+const configure = require('./config')
+
+module.exports = fp(async (fastify, opts, next) => {
+  /**
+   * verify config options
+   */
+  const config = configure(opts)
+
   /**
    * read package information
    */
@@ -30,12 +39,12 @@ module.exports = fp(async (fastify, config, next) => {
   /**
    * add config
    */
-  fastify.decorate('config', config)
+  fastify.decorate('config', assign(config, opts))
 
   /**
    * add OpenAPI docs (v3.0 aka swagger)
    */
-  fastify.register(oas, config.swagger)
+  fastify.register(oas)
 
   /**
    * add helmet (http security headers)
@@ -54,13 +63,12 @@ module.exports = fp(async (fastify, config, next) => {
   /**
    * autoload plugins, services, etc
    */
-  if (Array.isArray(config.autoloads)) {
-    for (const dir of config.autoloads) {
+  for (const dir of config.autoloads) {
+    if (fs.existsSync(dir))
       fastify.register(autoload, {
         dir,
         options: config
       })
-    }
   }
 
   /**

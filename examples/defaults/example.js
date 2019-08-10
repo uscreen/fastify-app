@@ -7,10 +7,12 @@ const fastify = require('fastify')({
 })
 
 // require @uscreen.de/fastify-app
-const defaultApp = require('./index')
+const defaultApp = require('../../index')
 
 // register defaults
-fastify.register(defaultApp)
+fastify.register(defaultApp, {
+  some: 'external'
+})
 
 // Declare a route
 fastify.get('/', (request, reply) => {
@@ -34,4 +36,5 @@ fastify.ready(err => {
   fastify.log.debug(
     'Application ready, routes are set:\n' + fastify.printRoutes()
   )
+  fastify.log.debug('config', fastify.config)
 })
