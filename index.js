@@ -54,11 +54,13 @@ module.exports = fp(async (fastify, config, next) => {
   /**
    * autoload plugins, services, etc
    */
-  for (const dir of config.autoloads) {
-    fastify.register(autoload, {
-      dir,
-      options: config
-    })
+  if (Array.isArray(config.autoloads)) {
+    for (const dir of config.autoloads) {
+      fastify.register(autoload, {
+        dir,
+        options: config
+      })
+    }
   }
 
   /**
