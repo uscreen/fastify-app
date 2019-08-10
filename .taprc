@@ -1,5 +1,0 @@
-{
-  "timeout": 30,
-  "color": true,
-  "reporter": "spec"
-}
