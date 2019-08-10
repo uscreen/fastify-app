@@ -19,40 +19,37 @@ tap.test('basic bootstrapping without custom config', t => {
 
     t.test('should expose it`s config', t => {
       t.type(fastify.config, 'object')
-      t.same(Array.isArray(fastify.config.autoloads), true)
-      t.end()
-    })
-
-    t.end()
-  })
-})
-
-tap.test('basic bootstrapping with some custom config', t => {
-  const fastify = build(t, {
-    hazCustomConfig: true
-  })
-
-  fastify.ready(err => {
-    t.test('should not throw any error', t => {
-      t.error(err)
-      t.end()
-    })
-
-    t.test('should expose it`s config', t => {
-      t.type(fastify.config, 'object')
       t.same(fastify.config.autoloads, [])
-      t.same(fastify.config.hazCustomConfig, true)
+      t.same(fastify.config.swagger, { exposeRoute: true })
       t.end()
+    })
+
+    t.test('should provide openapi json url', t => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/documentation/json'
+        },
+        (e, response) => {
+          const body = JSON.parse(response.body)
+          t.error(e)
+          t.ok(body.openapi)
+          t.end()
+        }
+      )
     })
 
     t.end()
   })
 })
 
-tap.test('basic bootstrapping with some overwrites', t => {
+tap.test('basic bootstrapping with some custom config and overwrites', t => {
   const fastify = build(t, {
     autoloads: ['one', 'two', 'three'],
-    hazCustomConfig: true
+    hazCustomConfig: true,
+    swagger: {
+      routePrefix: '/docs'
+    }
   })
 
   fastify.ready(err => {
@@ -66,6 +63,21 @@ tap.test('basic bootstrapping with some overwrites', t => {
       t.same(fastify.config.autoloads, ['one', 'two', 'three'])
       t.same(fastify.config.hazCustomConfig, true)
       t.end()
+    })
+
+    t.test('should provide openapi json on custom url', t => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/docs/json'
+        },
+        (e, response) => {
+          const body = JSON.parse(response.body)
+          t.error(e)
+          t.ok(body.openapi)
+          t.end()
+        }
+      )
     })
 
     t.end()

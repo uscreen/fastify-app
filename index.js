@@ -44,7 +44,7 @@ module.exports = fp(async (fastify, opts, next) => {
   /**
    * add OpenAPI docs (v3.0 aka swagger)
    */
-  fastify.register(oas)
+  fastify.register(oas, config.swagger)
 
   /**
    * add helmet (http security headers)
