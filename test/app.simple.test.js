@@ -71,6 +71,21 @@ tap.test('basic bootstrapping without custom config', t => {
       }
     )
 
+    t.test('should decorate application with a healthcheck URL', t => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/status'
+        },
+        (e, response) => {
+          t.error(e)
+          t.same(response.statusCode, 200)
+          t.same(JSON.parse(response.body), { status: 'ok' })
+          t.end()
+        }
+      )
+    })
+
     t.end()
   })
 })

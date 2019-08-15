@@ -74,18 +74,7 @@ module.exports = fp(async (fastify, opts, next) => {
   /**
    * add healthcheck
    */
-  fastify.register(
-    underPressure,
-    Object.assign(
-      {
-        maxEventLoopDelay: 1000,
-        maxHeapUsedBytes: 128 * 1024 * 1024,
-        maxRssBytes: 256 * 1024 * 1024,
-        retryAfter: 50
-      },
-      config.healthCheck
-    )
-  )
+  fastify.register(underPressure, config.healthCheck)
 
   /**
    * post-treatment

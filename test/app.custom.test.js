@@ -7,6 +7,9 @@ tap.test('basic bootstrapping with some custom config and overwrites', t => {
     hazCustomConfig: true,
     swagger: {
       routePrefix: '/docs'
+    },
+    healthCheck: {
+      exposeStatusRoute: '/health'
     }
   })
 
@@ -33,6 +36,23 @@ tap.test('basic bootstrapping with some custom config and overwrites', t => {
           const body = JSON.parse(response.body)
           t.error(e)
           t.ok(body.openapi)
+          t.end()
+        }
+      )
+    })
+
+    t.test('should provide healthcheck on custom url', t => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/health'
+        },
+        (e, response) => {
+          t.error(e)
+          t.same(response.statusCode, 200)
+          t.same(JSON.parse(response.body), {
+            status: 'ok'
+          })
           t.end()
         }
       )
