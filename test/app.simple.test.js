@@ -63,6 +63,14 @@ tap.test('basic bootstrapping without custom config', t => {
       )
     })
 
+    t.test(
+      'should decorate application with sensible from fastify-sensible',
+      t => {
+        t.ok(fastify.httpErrors)
+        t.end()
+      }
+    )
+
     t.end()
   })
 })
