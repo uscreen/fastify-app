@@ -27,6 +27,7 @@ const installPackages = () =>
         'eslint-plugin-promise',
         'eslint-plugin-standard',
         'lint-staged',
+        'tap',
         'prettier',
         'yorkie',
         '-D'
@@ -74,6 +75,7 @@ cli
       await addPackageConfig()
     } catch (error) {
       console.error(error)
+      process.exit(1)
     }
   })
 
@@ -88,5 +90,3 @@ cli.parse(process.argv)
 if (!process.argv.slice(2).length) {
   cli.help()
 }
-
-// process.exit(1)
