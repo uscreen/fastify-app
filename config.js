@@ -39,19 +39,13 @@ const schema = {
         }
       }
     }
-    // httpPort: { default: 3000 },
-    // httpBind: { default: '127.0.0.1' },
-    // prefix: { default: '/api' },
-    // logEnabled: { default: true },
-    // logLevel: { default: 'info' },
   }
 }
 
 module.exports = opts => {
   const config = envSchema({
     schema: schema,
-    data: opts,
-    dotenv: opts.useDotenv
+    data: opts
   })
 
   return config
