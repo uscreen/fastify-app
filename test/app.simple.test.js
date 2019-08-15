@@ -39,6 +39,30 @@ tap.test('basic bootstrapping without custom config', t => {
       )
     })
 
+    t.test('should decorate response with helmet security headers', t => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/'
+        },
+        (e, response) => {
+          t.error(e)
+          const h = response.headers
+          t.same(h['x-dns-prefetch-control'], 'off')
+          t.same(h['x-frame-options'], 'SAMEORIGIN')
+          t.same(h['x-powered-by'], `${fastify.name} ${fastify.version}`)
+          t.same(
+            h['strict-transport-security'],
+            'max-age=15552000; includeSubDomains'
+          )
+          t.same(h['x-download-options'], 'noopen')
+          t.same(h['x-content-type-options'], 'nosniff')
+          t.same(h['x-xss-protection'], '1; mode=block')
+          t.end()
+        }
+      )
+    })
+
     t.end()
   })
 })
