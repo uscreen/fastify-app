@@ -81,6 +81,7 @@ module.exports = fp(async (fastify, opts, next) => {
    * post-treatment
    */
   fastify.ready(err => {
+    /* istanbul ignore if */
     if (err) throw err
     fastify.log.debug(
       `${fastify.name} (${fastify.version}) ready. pwd: ${fastify.root}`
