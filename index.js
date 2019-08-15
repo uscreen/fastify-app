@@ -62,6 +62,7 @@ module.exports = fp(async (fastify, opts, next) => {
 
   /**
    * autoload plugins, services, etc
+   * @see https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins
    */
   for (const dir of config.autoloads) {
     if (fs.existsSync(dir))
