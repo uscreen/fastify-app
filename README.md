@@ -48,9 +48,13 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Roadmap
 
-- add tests (shame)
+- add cli
 
 ## Changelog
+
+### 0.1.0
+
+- added tests (100% coverage)
 
 ### 0.0.0
 
