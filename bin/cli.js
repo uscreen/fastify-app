@@ -3,6 +3,7 @@
 const path = require('path')
 const cli = require('commander')
 const readPkgUp = require('read-pkg-up')
+const writePackage = require('write-pkg')
 const { spawn } = require('child_process')
 
 /**
@@ -42,6 +43,25 @@ const installPackages = () =>
     })
   })
 
+const addPackageConfig = () => {
+  const pack = readPkgUp.sync()
+  delete pack.package._id
+  delete pack.package.readme
+  pack.package['scripts'] = Object.assign(pack.package.scripts || {}, {
+    lint: "eslint '**/*.js' --fix",
+    test: 'tap test/**/*.test.js',
+    'test:cov': 'tap --coverage-report=html test/**/*.test.js',
+    'test:ci': 'tap --coverage-report=text-summary test/**/*.test.js'
+  })
+  pack.package.gitHooks = {
+    'pre-commit': 'lint-staged'
+  }
+  pack.package['lint-staged'] = {
+    '*.{js}': ['eslint --fix', 'git add']
+  }
+  return writePackage(pack.path, pack.package)
+}
+
 /**
  * define a command
  */
@@ -51,6 +71,7 @@ cli
   .action(async () => {
     try {
       await installPackages()
+      await addPackageConfig()
     } catch (error) {
       console.error(error)
     }
