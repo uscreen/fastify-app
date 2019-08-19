@@ -2,6 +2,7 @@
 
 const path = require('path')
 const cli = require('commander')
+const inquirer = require('inquirer')
 const readPkgUp = require('read-pkg-up')
 const writePackage = require('write-pkg')
 const fs = require('fs-extra')
@@ -14,6 +15,9 @@ const { spawn } = require('child_process')
 const pack = readPkgUp.sync()
 const root = path.dirname(pack.path)
 
+/**
+ * install extra dev packages for linting
+ */
 const installPackages = () =>
   new Promise((resolve, reject) => {
     const yarn = spawn(
@@ -46,6 +50,9 @@ const installPackages = () =>
     })
   })
 
+/**
+ * configure package.json to use linting, testing, stuff
+ */
 const addPackageConfig = () => {
   const pack = readPkgUp.sync()
   delete pack.package._id
@@ -65,22 +72,48 @@ const addPackageConfig = () => {
   return writePackage(pack.path, pack.package)
 }
 
+/**
+ * copy dotfiles to destination
+ */
 const copySkeleton = () => {
   const src = path.join(__dirname, '..', 'skeleton')
   return fs.copy(src, root, { overwrite: false })
 }
 
 /**
- * define a command
+ * define init command
  */
 cli
   .command('init')
   .description('Interactivly scaffold a new project')
   .action(async () => {
     try {
-      await installPackages()
-      await addPackageConfig()
-      await copySkeleton()
+      const choices = await inquirer.prompt([
+        {
+          type: 'checkbox',
+          name: 'tasks',
+          message: 'Please choose task(s) to apply:',
+          choices: [
+            {
+              name: 'install extra dev packages',
+              value: 'installPackages'
+            },
+            {
+              name: 'configure package.json',
+              value: 'addPackageConfig'
+            },
+            {
+              name: 'setup dotfiles',
+              value: 'copySkeleton'
+            }
+          ]
+        }
+      ])
+
+      if (choices.tasks.includes('installPackages')) await installPackages()
+      if (choices.tasks.includes('addPackageConfig')) await addPackageConfig()
+      if (choices.tasks.includes('copySkeleton')) await copySkeleton()
+      process.exit(0)
     } catch (error) {
       console.error(error)
       process.exit(1)
