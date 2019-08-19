@@ -1,7 +1,6 @@
-/node_modules
-/yarn-error.log
-/.vscode
 .env
+/node_modules
+/*.log
+/.vscode
 /.nyc_output
 /coverage
-.DS_Store

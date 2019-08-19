@@ -4,6 +4,8 @@ const path = require('path')
 const cli = require('commander')
 const readPkgUp = require('read-pkg-up')
 const writePackage = require('write-pkg')
+const fs = require('fs-extra')
+
 const { spawn } = require('child_process')
 
 /**
@@ -63,6 +65,11 @@ const addPackageConfig = () => {
   return writePackage(pack.path, pack.package)
 }
 
+const copySkeleton = () => {
+  const src = path.join(__dirname, '..', 'skeleton')
+  return fs.copy(src, root, { overwrite: false })
+}
+
 /**
  * define a command
  */
@@ -73,6 +80,7 @@ cli
     try {
       await installPackages()
       await addPackageConfig()
+      await copySkeleton()
     } catch (error) {
       console.error(error)
       process.exit(1)
