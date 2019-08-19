@@ -1,6 +1,6 @@
 {
   "name": "@uscreen.de/fastify-app",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,7 @@
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "echo 'World' > test.txt",
+    "postinstall": "fastify-app init",
     "lint": "eslint '**/*.js' --fix",
     "test": "tap test/**/*.test.js",
     "test:cov": "tap --coverage-report=html test/**/*.test.js",
