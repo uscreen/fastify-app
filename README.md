@@ -6,7 +6,7 @@
 
 * decorates your app with __`name`__, __`version`__ and __`root`__-path read from package.json
 * decorates your app with any given __`config`__
-* provides __OpanAPI 3.0__ docs by use of [fastify-oas](https://github.com/SkeLLLa/fastify-oas)
+* provides __OpenAPI 3.0__ docs by use of [fastify-oas](https://github.com/SkeLLLa/fastify-oas)
 * enables extra __security__ headers as provided by __helmet__ [fastify-helmet](https://github.com/fastify/fastify-helmet)
 * provides extra __sensible defaults__ provided by [fastify-sensible](https://github.com/fastify/fastify-sensible)
 * uses [fastify-autoload](https://github.com/fastify/fastify-autoload) to __load plugins, models, services, whatever__ from configurable directories
