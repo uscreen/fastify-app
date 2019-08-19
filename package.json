@@ -1,6 +1,6 @@
 {
   "name": "@uscreen.de/fastify-app",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,8 @@
     "test": "tap test/**/*.test.js",
     "test:cov": "tap --coverage-report=html test/**/*.test.js",
     "test:ci": "tap --coverage-report=text-summary test/**/*.test.js",
-    "postinstall": "./bin/cli.js"
+    "preinstall": "echo 'Hello'",
+    "postinstall": "echo 'Worl'"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
