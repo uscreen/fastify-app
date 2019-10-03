@@ -1,6 +1,0 @@
-.env
-/node_modules
-/*.log
-/.vscode
-/.nyc_output
-/coverage

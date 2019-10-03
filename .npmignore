@@ -1,3 +1,10 @@
 examples
 coverage
 .nyc_output
+/node_modules
+/yarn-error.log
+/.vscode
+.env
+/.nyc_output
+/coverage
+.DS_Store
