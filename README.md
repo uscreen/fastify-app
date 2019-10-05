@@ -85,7 +85,7 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Roadmap
 
-> TBD
+- add a generic command cli
 
 ## Changelog
 
