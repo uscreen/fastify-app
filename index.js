@@ -73,9 +73,9 @@ module.exports = fp(async (fastify, opts, next) => {
   }
 
   /**
-   * add healthcheck
+   * add application health check
    */
-  fastify.register(underPressure, config.healthCheck)
+  fastify.register(underPressure, config.health)
 
   /**
    * post-treatment

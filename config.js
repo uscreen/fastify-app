@@ -18,7 +18,7 @@ const schema = {
         }
       }
     },
-    healthCheck: {
+    health: {
       type: 'object',
       default: {},
       properties: {
@@ -43,6 +43,8 @@ const schema = {
 }
 
 module.exports = opts => {
+  if (opts.healthCheck && !opts.health) opts.health = opts.healthCheck
+
   const config = envSchema({
     schema: schema,
     data: opts
