@@ -24,8 +24,8 @@ module.exports = fp(async (fastify, opts, next) => {
    */
   const pack = readPkgUp.sync()
   const pkg = {
-    name: pack.package.name,
-    version: pack.package.version,
+    name: pack.packageJson.name,
+    version: pack.packageJson.version,
     root: path.dirname(pack.path)
   }
 
