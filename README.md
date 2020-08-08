@@ -90,9 +90,13 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Changelog
 
-### 0.4.0
+### 0.5.0
 
 - upgraded to fastify 3.x with backward compatible defaults
+
+### 0.4.0
+
+- added alias of `health` <-> `healthCheck`
 
 ### 0.3.0
 
