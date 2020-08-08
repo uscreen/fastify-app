@@ -38,6 +38,12 @@ const schema = {
           default: 50
         }
       }
+    },
+    contentSecurityPolicy: {
+      type: ['boolean', 'object'],
+
+      // disable CSR as default, as we won't know any options from api side
+      default: false
     }
   }
 }

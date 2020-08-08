@@ -13,7 +13,7 @@ const assign = require('assign-deep')
 
 const configure = require('./config')
 
-module.exports = fp(async (fastify, opts, next) => {
+module.exports = fp((fastify, opts, next) => {
   /**
    * verify config options
    */
@@ -50,9 +50,7 @@ module.exports = fp(async (fastify, opts, next) => {
    * add helmet (http security headers)
    */
   fastify.register(helmet, {
-    hidePoweredBy: {
-      setTo: `${fastify.name} ${fastify.version}`
-    }
+    contentSecurityPolicy: config.contentSecurityPolicy
   })
 
   /**
@@ -89,6 +87,18 @@ module.exports = fp(async (fastify, opts, next) => {
 
     // re-read routes for OpenAPI docs
     fastify.oas()
+  })
+
+  /**
+   * add some custom headers
+   */
+  fastify.addHook('onSend', async (request, reply, payload) => {
+    reply.header('X-Request-ID', request.id)
+    reply.header('x-Powered-By', `${fastify.name} ${fastify.version}`)
+
+    // helmet changed defaults, @see https://github.com/helmetjs/helmet/issues/230
+    reply.header('X-XSS-Protection', '1; mode=block')
+    return payload
   })
 
   next()
