@@ -48,6 +48,7 @@ tap.test('basic bootstrapping without custom config', t => {
         (e, response) => {
           t.error(e)
           const h = response.headers
+
           t.same(h['x-dns-prefetch-control'], 'off')
           t.same(h['x-frame-options'], 'SAMEORIGIN')
           t.same(h['x-powered-by'], `${fastify.name} ${fastify.version}`)
@@ -58,6 +59,7 @@ tap.test('basic bootstrapping without custom config', t => {
           t.same(h['x-download-options'], 'noopen')
           t.same(h['x-content-type-options'], 'nosniff')
           t.same(h['x-xss-protection'], '1; mode=block')
+          t.ok(h['x-request-id'])
           t.end()
         }
       )

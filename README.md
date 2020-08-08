@@ -76,18 +76,27 @@ This enables all default features and exposes some extra routes, like:
 
 All options get validated and defaulted to a defined json-schema you can check in [config.js](./config.js) Overview of options:
 
-| option                            | Description                                                                                                                                                                                                                                                                               | Default                     | Example                          |
-|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------------------------|
-| __autoloads__                     | array of directories [fastify-autoload](https://github.com/fastify/fastify-autoload) should load your fastify plugins from. Please consider reading [Loading order of your plugins](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins) | `[]`                        | `['./plugins', './services']`    |
-| __swagger__                       | object configuring [fastify-oas](https://github.com/SkeLLLa/fastify-oas) to generate OpenAPI 3.0 docs from your routes                                                                                                                                                                    | `{exposeRoute: true}`       | `{exposeRoute: '/docs'}`         |
-| __health__ (alias: `healthCheck`) | object configuring [under-pressure](https://github.com/fastify/under-pressure) to provide a monitoring healthcheck route for your app                                                                                                                                                     | `{exposeStatusRoute: true}` | `{exposeStatusRoute: '/health'}` |
+| option                            | Description                                                                                                                                                                                                                                                                               | Default                          | Example                                                           |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------|
+| __autoloads__                     | array of directories [fastify-autoload](https://github.com/fastify/fastify-autoload) should load your fastify plugins from. Please consider reading [Loading order of your plugins](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins) | `[]`                             | `['./plugins', './services']`                                     |
+| __swagger__                       | object configuring [fastify-oas](https://github.com/SkeLLLa/fastify-oas) to generate OpenAPI 3.0 docs from your routes                                                                                                                                                                    | `{exposeRoute: true}`            | `{exposeRoute: '/docs'}`                                          |
+| __health__ (alias: `healthCheck`) | object configuring [under-pressure](https://github.com/fastify/under-pressure) to provide a monitoring healthcheck route for your app                                                                                                                                                     | `{exposeStatusRoute: true}`      | `{exposeStatusRoute: '/health'}`                                  |
+| __contentSecurityPolicy__         | object configuring [helmet](https://github.com/helmetjs/helmet) to set CSR headers on each response                                                                                                                                                                                       | `{contentSecurityPolicy: false}` | `{contentSecurityPolicy: {directives: {defaultSrc: ["'self'"]}}}` |
 
 
 ## Roadmap
 
-- add a generic command cli
+- add a server factory providing defaults for logging and generateId
 
 ## Changelog
+
+### 0.5.0
+
+- upgraded to fastify 3.x with backward compatible defaults
+
+### 0.4.0
+
+- added alias of `health` <-> `healthCheck`
 
 ### 0.3.0
 
