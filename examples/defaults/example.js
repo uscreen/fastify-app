@@ -1,8 +1,21 @@
-// Require the framework and instantiate it
+const hyperid = require('hyperid')
+const name = 'example-app'
+const version = '0.1.0'
+const instance = hyperid({ urlSafe: true })
+
 const fastify = require('fastify')({
+  genReqId() {
+    return instance()
+  },
+
   logger: {
     prettyPrint: true,
-    level: 'debug'
+    level: 'debug',
+    name: `${name} (v${version}) ${process.env.NODE_APP_INSTANCE}`,
+    redact: {
+      paths: ['pattern'],
+      remove: true
+    }
   }
 })
 
