@@ -33,8 +33,19 @@ module.exports = fp((fastify, opts, next) => {
    * add package information
    */
   for (const [k, v] of Object.entries(pkg)) {
-    fastify.decorate(k, v)
+    /**
+     * fastify ^3.6.0 uses fastify.version internaly,
+     * so avoid redeclaring
+     */
+    if (!fastify.hasDecorator(k)) {
+      fastify.decorate(k, v)
+    }
   }
+
+  /**
+   * add package information, namespaced
+   */
+  fastify.decorate('app', pkg)
 
   /**
    * add config
@@ -78,11 +89,11 @@ module.exports = fp((fastify, opts, next) => {
   /**
    * post-treatment
    */
-  fastify.ready(err => {
+  fastify.ready((err) => {
     /* istanbul ignore if */
     if (err) throw err
     fastify.log.debug(
-      `${fastify.name} (${fastify.version}) ready. pwd: ${fastify.root}`
+      `${fastify.name} (${fastify.app.version}) ready. pwd: ${fastify.root}`
     )
 
     // re-read routes for OpenAPI docs
