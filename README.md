@@ -90,11 +90,26 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Changelog
 
+### 0.6.0
+
+#### Changed
+
+- upgraded all deps including major versions, like fastify@3.6.x, env-schem@2.0.0
+- uses shared config @uscreen.de/eslint-config-prettystandard-node
+
 ### 0.5.1
 
-- FIX: fastify 3.6.x decorates `fastify.version`
-- ADD: decorate `fastify.app.version`, `fastify.app.name`, and `fastify.app.root`
-- CHANGE: skip decoration of any `fastify.<decorator>` if already declared
+#### Fixed
+
+- fastify 3.6.x decorates `fastify.version` which broke
+
+#### Added
+
+- decorate `fastify.app.version`, `fastify.app.name`, and `fastify.app.root`
+
+#### Changed
+
+- skip decoration of any `fastify.<decorator>` if already declared
 
 ### 0.5.0
 
