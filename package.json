@@ -45,14 +45,14 @@
   },
   "dependencies": {
     "assign-deep": "^1.0.1",
-    "env-schema": "^1.0.0",
-    "fastify": "^3.2.0",
-    "fastify-autoload": "^3.0.7",
-    "fastify-helmet": "^5.0.0",
-    "fastify-oas": "^3.0.0",
-    "fastify-plugin": "^2.2.0",
+    "env-schema": "^2.0.0",
+    "fastify": "^3.6.0",
+    "fastify-autoload": "^3.3.0",
+    "fastify-helmet": "^5.0.3",
+    "fastify-oas": "^3.0.3",
+    "fastify-plugin": "^2.3.4",
     "fastify-sensible": "^3.0.1",
     "read-pkg-up": "^7.0.1",
-    "under-pressure": "^5.1.1"
+    "under-pressure": "^5.2.0"
   }
 }

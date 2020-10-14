@@ -1197,10 +1197,10 @@ enquirer@^2.3.5, enquirer@^2.3.6:
   dependencies:
     ansi-colors "^4.1.1"
 
-env-schema@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-1.1.0.tgz#4f74ff8fa81a1e300c963f2fcf94a77272476592"
-  integrity sha512-7tA+o0HdGtD5CZGLiN3dPO1OAu6qUaspY2gEmwbRTQ0yWst6Ov2svEdW8Y/30I4md8sRLX41p0vPp4RknmFsjg==
+env-schema@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-2.0.0.tgz#f11b58e103d5d493e17e4fde6bc6bf02eb397beb"
+  integrity sha512-HWJLnXyoUDR2mhekkvs5EN3Owc/rov6SFS0K9XZxY8mHTm5q1qoRHEiHsYbGL9xG668zjubkOr62cggEK/ikmA==
   dependencies:
     ajv "^6.10.2"
     dotenv "^7.0.0"
@@ -1560,10 +1560,10 @@ fast-safe-stringify@^2.0.7:
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz#124aa885899261f68aedb42a7c080de9da608743"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
-fastify-autoload@^3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/fastify-autoload/-/fastify-autoload-3.0.7.tgz#921ecaf34cea59ba294bcd77dbfdf7e23c3ad64a"
-  integrity sha512-30eSlnF4Hl6d5WQSRY3O3ey3gpbvHczfDd4mwy8M88NzQsYsfnWKwnC/o1v6eJPWJOuc0/yoOUhUzQlQEIp1Cg==
+fastify-autoload@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-autoload/-/fastify-autoload-3.3.0.tgz#50f648a26f27d05444d3c8f94424ea57e9bdb89a"
+  integrity sha512-H125T3Da47vFFNY1bthIkOdYEXW8aw3dPq/hO863VmzzGLtTOyGQsoUKXhRTd/ERM3mkMR1s8w3cKiknKnIZgg==
   dependencies:
     pkg-up "^3.1.0"
     semver "^7.3.2"
@@ -1573,30 +1573,37 @@ fastify-error@^0.2.0:
   resolved "https://registry.yarnpkg.com/fastify-error/-/fastify-error-0.2.0.tgz#9a1c28d4f42b6259e7a549671c8e5e2d85660634"
   integrity sha512-zabxsBatj59ROG0fhP36zNdc5Q1/eYeH9oSF9uvfrurZf8/JKfrJbMcIGrLpLWcf89rS6L91RHWm20A/X85hcA==
 
-fastify-helmet@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-helmet/-/fastify-helmet-5.0.0.tgz#a8019f009237ca23ccc0aeca72ffc33d8988b781"
-  integrity sha512-kE5qEflGkSu0RRE3WNdt9XMkU2X6zb85jYLW2TKIL7r0p+JJmqaW24xsD248Bn5hfPxDfKSBqCj6MoaLIqYzTw==
+fastify-helmet@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/fastify-helmet/-/fastify-helmet-5.0.3.tgz#6f72b998d0bc9f6acb6546f1a5bfb631a9429ed3"
+  integrity sha512-PLrmcRKMATmR/u613CSKsWyKy9n+Cnpr/uqv4uRTAkPdYGyE8yByZwE0E5cLJzIQHpfM0ba6aGPeYJMrGg5VnQ==
   dependencies:
-    fastify-plugin "^2.0.3"
+    fastify-plugin "^2.1.1"
     helmet "^4.0.0"
 
-fastify-oas@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-oas/-/fastify-oas-3.0.0.tgz#8fe3e240e8b912538808906720ae96c471f4a16e"
-  integrity sha512-yD0VBEu3YoOqRbTiAHHUFRXavnBNBE4oOqd2lm9xIgks2brngINwA+IWrx84xZI9OQ6/Tp43cyTX5xJADSF5Hw==
+fastify-oas@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/fastify-oas/-/fastify-oas-3.0.3.tgz#488e4c03aa9e8a40185936779c7b775bcfcaada6"
+  integrity sha512-Q7Lr6SmdJdxXer0uOxFBCMuXHM9wMUECFpfQyH0rxiTcyu7LzZS6n5s8BZoywmYKbqoWMMdLt4PjkLzzVB1uxQ==
   dependencies:
     "@types/swagger-schema-official" "^2.0.21"
     app-root-path "^3.0.0"
-    fastify-plugin "^2.0.0"
+    fastify-plugin "^2.3.0"
     fastify-static "^3.0.0"
     js-yaml "^3.14.0"
     openapi3-ts "^1.4.0"
 
-fastify-plugin@^2.0.0, fastify-plugin@^2.0.3, fastify-plugin@^2.2.0:
+fastify-plugin@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.2.0.tgz#7b4f526dc08e13635f3e7cb0c79a8a596a90986c"
   integrity sha512-R2XUkpsuXvz7mctqyY7Y9+CGeYd+ITNUXuGdpOVsIuqHkzARMHm4ZwFGl8xrGJgRAMwMmlWQbX8nduSlexKkjA==
+  dependencies:
+    semver "^7.3.2"
+
+fastify-plugin@^2.1.1, fastify-plugin@^2.3.0, fastify-plugin@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.4.tgz#b17abdc36a97877d88101fb86ad8a07f2c07de87"
+  integrity sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==
   dependencies:
     semver "^7.3.2"
 
@@ -1628,10 +1635,10 @@ fastify-warning@^0.2.0:
   resolved "https://registry.yarnpkg.com/fastify-warning/-/fastify-warning-0.2.0.tgz#e717776026a4493dc9a2befa44db6d17f618008f"
   integrity sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==
 
-fastify@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-3.2.0.tgz#acc009f86c06329a53515e303fc35f50d8f59527"
-  integrity sha512-+4gv8GiiblMtJf1z/sCQfEbndugmlpQu8wx4IgEpAstKY36fHIMBCSny9Wz6fHfq+FU/FTpYbrCFxzCMwiykFQ==
+fastify@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-3.6.0.tgz#b5fae09eccecb2be9e4ff24abc98cd7f0f0d10c3"
+  integrity sha512-nz35mhJpJNjSPZzw05x+ITXokeIMmG3MFPzzS/yNzDfw24sGol7Gr3cN3+X3t3PZV1kQG9vJbKDUzgDA+YbbCA==
   dependencies:
     abstract-logging "^2.0.0"
     ajv "^6.12.2"
@@ -1641,12 +1648,13 @@ fastify@^3.2.0:
     fastify-warning "^0.2.0"
     find-my-way "^3.0.0"
     flatstr "^1.0.12"
-    light-my-request "^4.0.0"
+    light-my-request "^4.1.0"
     pino "^6.2.1"
     proxy-addr "^2.0.5"
     readable-stream "^3.4.0"
     rfdc "^1.1.4"
     secure-json-parse "^2.0.0"
+    semver "^7.3.2"
     tiny-lru "^7.0.0"
 
 fastq@^1.6.1:
@@ -2477,13 +2485,14 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-light-my-request@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/light-my-request/-/light-my-request-4.0.1.tgz#7e18f2c3f8535123c329b1ae78a5d6750424a096"
-  integrity sha512-kGRfzvSS9P/zEsnu34pUisOz2FAPqkHFJfdezW6HRzLLlzjY+1LTRRuh2d82SkW/M/QWNVWnXTZ0HMUydz2fgg==
+light-my-request@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/light-my-request/-/light-my-request-4.1.1.tgz#71a4f5742affd21d54e70895b6c6cec08feb9bad"
+  integrity sha512-4H0T0PQcFB/fGTIkNV5ShuftWnuUKdtLWq5t2zt+lwMWRZkVviTfmJqGOXeAAqkdREnGJQXa8zJ4wXJ0LrzrTA==
   dependencies:
     ajv "^6.12.2"
     cookie "^0.4.0"
+    fastify-warning "^0.2.0"
     readable-stream "^3.6.0"
     set-cookie-parser "^2.4.1"
 
@@ -4333,10 +4342,10 @@ undefsafe@^2.0.3:
   dependencies:
     debug "^2.2.0"
 
-under-pressure@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/under-pressure/-/under-pressure-5.1.1.tgz#55ae7bd100b47f3599b9698df19afe789cd619d3"
-  integrity sha512-hjoZBI+CbON90XMB5Zr2VxK9kLMrf6xy7Fh2KeigMVrrx1xM7HPzcS0qWnidySMyhbsNo/whYgbcnABC7LpNZA==
+under-pressure@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/under-pressure/-/under-pressure-5.2.0.tgz#cdb77e51a539e85e267d1d88b20c8755fd1970a7"
+  integrity sha512-gx1bVtt1M3AuLIZD7NKusmSHfm/HpNkenKk8ZIDWjV1RIxB5Ixt5XR4jWfkx2aLIXy5a2TcqUdt3h9duycYzOA==
   dependencies:
     fastify-error "^0.2.0"
     fastify-plugin "^2.0.0"
