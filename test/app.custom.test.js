@@ -1,7 +1,7 @@
 const tap = require('tap')
 const { build } = require('./helper')
 
-tap.test('basic bootstrapping with some custom config and overwrites', t => {
+tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
   const fastify = build(t, {
     autoloads: ['one', 'two', 'three'],
     hazCustomConfig: true,
@@ -13,20 +13,20 @@ tap.test('basic bootstrapping with some custom config and overwrites', t => {
     }
   })
 
-  fastify.ready(err => {
-    t.test('should not throw any error', t => {
+  fastify.ready((err) => {
+    t.test('should not throw any error', (t) => {
       t.error(err)
       t.end()
     })
 
-    t.test('should expose it`s config', t => {
+    t.test('should expose it`s config', (t) => {
       t.type(fastify.config, 'object')
       t.same(fastify.config.autoloads, ['one', 'two', 'three'])
       t.same(fastify.config.hazCustomConfig, true)
       t.end()
     })
 
-    t.test('should provide openapi json on custom url', t => {
+    t.test('should provide openapi json on custom url', (t) => {
       fastify.inject(
         {
           method: 'GET',
@@ -41,7 +41,7 @@ tap.test('basic bootstrapping with some custom config and overwrites', t => {
       )
     })
 
-    t.test('should provide healthcheck on custom url', t => {
+    t.test('should provide healthcheck on custom url', (t) => {
       fastify.inject(
         {
           method: 'GET',

@@ -48,7 +48,7 @@ const schema = {
   }
 }
 
-module.exports = opts => {
+module.exports = (opts) => {
   if (opts.healthCheck && !opts.health) opts.health = opts.healthCheck
 
   const config = envSchema({

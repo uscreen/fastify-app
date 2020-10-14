@@ -1,25 +1,25 @@
 const tap = require('tap')
 const { build } = require('./helper')
 
-tap.test('health should handled as alias to healthCheck', t => {
+tap.test('health should handled as alias to healthCheck', (t) => {
   const fastify = build(t, {
     health: {
       exposeStatusRoute: '/healthyStatus'
     }
   })
 
-  fastify.ready(err => {
-    t.test('should not throw any error', t => {
+  fastify.ready((err) => {
+    t.test('should not throw any error', (t) => {
       t.error(err)
       t.end()
     })
 
-    t.test('should expose it`s config', t => {
+    t.test('should expose it`s config', (t) => {
       t.type(fastify.config, 'object')
       t.end()
     })
 
-    t.test('should provide healthcheck on custom url', t => {
+    t.test('should provide healthcheck on custom url', (t) => {
       fastify.inject(
         {
           method: 'GET',

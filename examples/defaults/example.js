@@ -33,7 +33,7 @@ fastify.get('/', (request, reply) => {
 })
 
 // some more optional verbose output on ready
-fastify.ready(err => {
+fastify.ready((err) => {
   if (err) throw err
   fastify.log.debug(
     'Application ready, routes are set:\n' + fastify.printRoutes()
@@ -42,7 +42,7 @@ fastify.ready(err => {
 })
 
 // Run the server!
-fastify.listen(3000, err => {
+fastify.listen(3000, (err) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

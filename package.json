@@ -25,6 +25,7 @@
     ]
   },
   "devDependencies": {
+    "@uscreen.de/eslint-config-prettystandard-node": "^0.1.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-standard": "^14.1.0",

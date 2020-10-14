@@ -1,30 +1,40 @@
 const tap = require('tap')
 const { build } = require('./helper')
 
-tap.test('basic bootstrapping without custom config', t => {
+tap.test('basic bootstrapping without custom config', (t) => {
   const fastify = build(t)
 
-  fastify.ready(err => {
-    t.test('should not throw any error', t => {
+  fastify.ready((err) => {
+    t.test('should not throw any error', (t) => {
       t.error(err)
       t.end()
     })
 
-    t.test('should expose some package.json details', t => {
+    t.test('should expose some package.json details', (t) => {
       t.ok(fastify.name)
       t.ok(fastify.version)
       t.ok(fastify.root)
       t.end()
     })
 
-    t.test('should expose it`s config', t => {
+    t.test(
+      'should also expose some package.json details namespaced to fastify.app',
+      (t) => {
+        t.ok(fastify.app.name)
+        t.ok(fastify.app.version)
+        t.ok(fastify.app.root)
+        t.end()
+      }
+    )
+
+    t.test('should expose it`s config', (t) => {
       t.type(fastify.config, 'object')
       t.same(fastify.config.autoloads, [])
       t.same(fastify.config.swagger, { exposeRoute: true })
       t.end()
     })
 
-    t.test('should provide openapi json url', t => {
+    t.test('should provide openapi json url', (t) => {
       fastify.inject(
         {
           method: 'GET',
@@ -39,7 +49,7 @@ tap.test('basic bootstrapping without custom config', t => {
       )
     })
 
-    t.test('should decorate response with helmet security headers', t => {
+    t.test('should decorate response with helmet security headers', (t) => {
       fastify.inject(
         {
           method: 'GET',
@@ -67,13 +77,13 @@ tap.test('basic bootstrapping without custom config', t => {
 
     t.test(
       'should decorate application with sensible from fastify-sensible',
-      t => {
+      (t) => {
         t.ok(fastify.httpErrors)
         t.end()
       }
     )
 
-    t.test('should decorate application with a healthcheck URL', t => {
+    t.test('should decorate application with a healthcheck URL', (t) => {
       fastify.inject(
         {
           method: 'GET',
