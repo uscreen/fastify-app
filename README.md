@@ -90,6 +90,12 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Changelog
 
+### 0.5.1
+
+- FIX: fastify 3.6.x decorates `fastify.version`
+- ADD: decorate `fastify.app.version`, `fastify.app.name`, and `fastify.app.root`
+- CHANGE: skip decoration of any `fastify.<decorator>` if already declared
+
 ### 0.5.0
 
 - upgraded to fastify 3.x with backward compatible defaults
