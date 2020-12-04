@@ -90,6 +90,13 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 ## Changelog
 
+### 0.7.0
+
+#### Changed
+
+- upgraded all deps including major versions, like fastify-plugin@3.x
+- upgrade node LTS (14)
+
 ### 0.6.0
 
 #### Changed
