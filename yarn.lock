@@ -329,20 +329,19 @@
   resolved "https://registry.yarnpkg.com/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
   integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
 
-"@uscreen.de/eslint-config-prettystandard-node@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@uscreen.de/eslint-config-prettystandard-node/-/eslint-config-prettystandard-node-0.1.0.tgz#f6c5d5dbd649438b743ad26dca822e7a55b12014"
-  integrity sha512-tDRQWnq67LFfGom6XLBfTDEWJHxc2aMmRj66ZkhdfeP0tdXuSLTk9SD4S+9EHXWHN2DcFakgQLdT8hbytyIhCA==
+"@uscreen.de/eslint-config-prettystandard-node@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@uscreen.de/eslint-config-prettystandard-node/-/eslint-config-prettystandard-node-0.1.2.tgz#f6befbffa9d2adf10eafa9f8e181587b4d8c65ab"
+  integrity sha512-YXuDSG3QZ5A3GYqzFQBwl1w+11kYEk+yIVNpJvypmQFEoacBjw2/TlHBzZQNvpAlLKuvzpwq0dy2XZxH2/5aOQ==
   dependencies:
-    eslint "^7.8.1"
-    eslint-config-prettier "^6.11.0"
-    eslint-config-standard "^14.1.1"
-    eslint-plugin-import "^2.22.0"
+    eslint "^7.15.0"
+    eslint-config-prettier "^7.0.0"
+    eslint-config-standard "^16.0.2"
+    eslint-plugin-import "^2.22.1"
     eslint-plugin-node "^11.1.0"
-    eslint-plugin-prettier "^3.1.4"
+    eslint-plugin-prettier "^3.2.0"
     eslint-plugin-promise "^4.2.1"
-    eslint-plugin-standard "^4.0.1"
-    prettier "^2.1.1"
+    prettier "^2.2.1"
 
 abbrev@1:
   version "1.1.1"
@@ -1259,17 +1258,15 @@ escape-string-regexp@^2.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
-eslint-config-prettier@^6.11.0:
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
-  integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
-  dependencies:
-    get-stdin "^6.0.0"
+eslint-config-prettier@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-7.0.0.tgz#c1ae4106f74e6c0357f44adb076771d032ac0e97"
+  integrity sha512-8Y8lGLVPPZdaNA7JXqnvETVC7IiVRgAP6afQu9gOQRn90YY3otMNh+x7Vr2vMePQntF+5erdSUBqSzCmU/AxaQ==
 
-eslint-config-standard@^14.1.1:
-  version "14.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-14.1.1.tgz#830a8e44e7aef7de67464979ad06b406026c56ea"
-  integrity sha512-Z9B+VR+JIXRxz21udPTL9HpFMyoMUEeX1G251EQ6e05WD9aPVtVBn09XUmZ259wCMlCDmYDSZG62Hhm+ZTJcUg==
+eslint-config-standard@^16.0.2:
+  version "16.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-16.0.2.tgz#71e91727ac7a203782d0a5ca4d1c462d14e234f6"
+  integrity sha512-fx3f1rJDsl9bY7qzyX8SAtP8GBSk6MfXFaTfaGgk12aAYW4gJSyRm7dM790L6cbXv63fvjY4XeSzXnb4WM+SKw==
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -1295,7 +1292,7 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-import@^2.22.0:
+eslint-plugin-import@^2.22.1:
   version "2.22.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.22.1.tgz#0896c7e6a0cf44109a2d97b95903c2bb689d7702"
   integrity sha512-8K7JjINHOpH64ozkAhpT3sd+FswIZTfMZTjdx052pnWrgRCVfp8op9tbjpAk3DdUeI/Ba4C8OjdC0r90erHEOw==
@@ -1326,7 +1323,7 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-prettier@^3.1.4:
+eslint-plugin-prettier@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
   integrity sha512-kOUSJnFjAUFKwVxuzy6sA5yyMx6+o9ino4gCdShzBNx4eyFRudWRYKCFolKjoM40PEiuU6Cn7wBLfq3WsGg7qg==
@@ -1337,11 +1334,6 @@ eslint-plugin-promise@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.2.1.tgz#845fd8b2260ad8f82564c1222fce44ad71d9418a"
   integrity sha512-VoM09vT7bfA7D+upt+FjeBO5eHIJQBUWki1aPvB+vbNiHS3+oGIJGIeyBtKQTME6UPXXy3vV07OL1tHd3ANuDw==
-
-eslint-plugin-standard@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-4.1.0.tgz#0c3bf3a67e853f8bbbc580fb4945fbf16f41b7c5"
-  integrity sha512-ZL7+QRixjTR6/528YNGyDotyffm5OQst/sGxKDwGb9Uqs4In5Egi4+jbobhqJoyoCM6/7v/1A5fhQ7ScMtDjaQ==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
@@ -1368,7 +1360,7 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.8.1:
+eslint@^7.15.0:
   version "7.15.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.15.0.tgz#eb155fb8ed0865fcf5d903f76be2e5b6cd7e0bc7"
   integrity sha512-Vr64xFDT8w30wFll643e7cGrIkPEU50yIiI36OdSIDoSGguIeaLzBo0vpGvzo9RECUqq7htURfwEtKqwytkqzA==
@@ -1577,19 +1569,19 @@ fastify-helmet@^5.0.3:
     fastify-plugin "^2.1.1"
     helmet "^4.0.0"
 
-fastify-oas@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/fastify-oas/-/fastify-oas-3.0.3.tgz#488e4c03aa9e8a40185936779c7b775bcfcaada6"
-  integrity sha512-Q7Lr6SmdJdxXer0uOxFBCMuXHM9wMUECFpfQyH0rxiTcyu7LzZS6n5s8BZoywmYKbqoWMMdLt4PjkLzzVB1uxQ==
+fastify-oas@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/fastify-oas/-/fastify-oas-3.0.8.tgz#be6dedfc8313d64cae7c94ca475c1ebfca2665c9"
+  integrity sha512-pI8tp64/3iGE7E1WIF55GzntvO/esoRcwRelVNFTodcM9F6yfY5e/TWNmN4kLQQO/Ki4/3hAtaPvyr25nToXeg==
   dependencies:
     "@types/swagger-schema-official" "^2.0.21"
     app-root-path "^3.0.0"
-    fastify-plugin "^2.3.0"
-    fastify-static "^3.0.0"
+    fastify-plugin "^3.0.0"
+    fastify-static "^3.3.0"
     js-yaml "^3.14.0"
     openapi3-ts "^1.4.0"
 
-fastify-plugin@^2.0.0, fastify-plugin@^2.1.1, fastify-plugin@^2.3.0:
+fastify-plugin@^2.0.0, fastify-plugin@^2.1.1:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.4.tgz#b17abdc36a97877d88101fb86ad8a07f2c07de87"
   integrity sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==
@@ -1614,7 +1606,7 @@ fastify-sensible@^3.0.1:
     type-is "^1.6.18"
     vary "^1.1.2"
 
-fastify-static@^3.0.0:
+fastify-static@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-3.3.0.tgz#33b639f1fa6fde703326a9ef353d6b1469146f46"
   integrity sha512-NaaeGWz25TmCYTGR8z90rhpfCuQqxDJauMC7fUTaswtxkM5CUmGGpwInm5/A55qfn9MbUQbPOWtWwSvhY73xHg==
@@ -1841,11 +1833,6 @@ get-own-enumerable-property-symbols@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-3.0.2.tgz#b5fde77f22cbe35f390b4e089922c50bce6ef664"
   integrity sha512-I0UBV/XOz1XkIJHEUDMZAbzCThU/H8DxmSfmdGcKPnVhu2VfFqr34jr9777IyaTYvxjedWhqVIilEDsCdP5G6g==
-
-get-stdin@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
-  integrity sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
 
 get-stream@^3.0.0:
   version "3.0.0"
@@ -3298,7 +3285,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.1.1, prettier@^2.1.2:
+prettier@^2.1.2, prettier@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
