@@ -25,7 +25,6 @@
     "@uscreen.de/eslint-config-prettystandard-node": "^0.1.2",
     "hyperid": "^2.0.5",
     "lint-staged": "^10.4.0",
-    "nodemon": "^2.0.5",
     "pino-pretty": "^4.3.0",
     "prettier": "^2.1.2",
     "should": "^13.2.3",
