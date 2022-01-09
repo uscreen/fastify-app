@@ -34,6 +34,9 @@
     "read-pkg-up": "^7.0.1",
     "under-pressure": "^5.8.0"
   },
+  "resolutions": {
+    "fastify-oas/fastify-static": "^4.2.4"
+  },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
   }
