@@ -15,6 +15,9 @@ const schema = {
       properties: {
         exposeRoute: {
           default: true
+        },
+        openapi: {
+          default: {}
         }
       }
     },

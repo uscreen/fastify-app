@@ -6,7 +6,7 @@ const readPkgUp = require('read-pkg-up')
 const fp = require('fastify-plugin')
 const helmet = require('fastify-helmet')
 const sensible = require('fastify-sensible')
-const oas = require('fastify-oas')
+const swagger = require('fastify-swagger')
 const autoload = require('fastify-autoload')
 const underPressure = require('under-pressure')
 const assign = require('assign-deep')
@@ -55,7 +55,7 @@ module.exports = fp((fastify, opts, next) => {
   /**
    * add OpenAPI docs (v3.0 aka swagger)
    */
-  fastify.register(oas, config.swagger)
+  fastify.register(swagger, config.swagger)
 
   /**
    * add helmet (http security headers)
@@ -97,7 +97,7 @@ module.exports = fp((fastify, opts, next) => {
     )
 
     // re-read routes for OpenAPI docs
-    fastify.oas()
+    fastify.swagger()
   })
 
   /**

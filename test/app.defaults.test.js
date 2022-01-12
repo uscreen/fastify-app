@@ -30,7 +30,11 @@ tap.test('basic bootstrapping without custom config', (t) => {
     t.test('should expose it`s config', (t) => {
       t.type(fastify.config, 'object')
       t.same(fastify.config.autoloads, [])
-      t.same(fastify.config.swagger, { exposeRoute: true })
+      t.same(fastify.config.swagger, {
+        exposeRoute: true,
+        openapi: {},
+        mode: 'dynamic'
+      })
       t.end()
     })
 

@@ -27,15 +27,12 @@
     "env-schema": "^3.5.1",
     "fastify": "^3.25.3",
     "fastify-autoload": "^3.10.0",
-    "fastify-helmet": "^5.3.2",
-    "fastify-oas": "^3.0.8",
+    "fastify-helmet": "^6.0.0",
     "fastify-plugin": "^3.0.0",
     "fastify-sensible": "^3.1.2",
+    "fastify-swagger": "^4.13.1",
     "read-pkg-up": "^7.0.1",
     "under-pressure": "^5.8.0"
-  },
-  "resolutions": {
-    "fastify-oas/fastify-static": "^4.2.4"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"

@@ -32,7 +32,9 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
     t.test('autoloaded plugins should have access to global config', (t) => {
       const options = fastify.getOptions()
       t.same(options.swagger, {
-        exposeRoute: true
+        exposeRoute: true,
+        openapi: {},
+        mode: 'dynamic'
       })
       t.end()
     })
