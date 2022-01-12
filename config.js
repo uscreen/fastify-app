@@ -18,7 +18,8 @@ const schema = {
         },
         openapi: {
           default: {}
-        }
+        },
+        uiConfig: { default: { validatorUrl: null } }
       }
     },
     health: {

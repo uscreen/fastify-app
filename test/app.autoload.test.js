@@ -34,7 +34,7 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
       t.same(options.swagger, {
         exposeRoute: true,
         openapi: {},
-        mode: 'dynamic'
+        uiConfig: { validatorUrl: null }
       })
       t.end()
     })

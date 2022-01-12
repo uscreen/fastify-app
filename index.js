@@ -26,6 +26,7 @@ module.exports = fp((fastify, opts, next) => {
   const pkg = {
     name: pack.packageJson.name,
     version: pack.packageJson.version,
+    description: pack.packageJson.description,
     root: path.dirname(pack.path)
   }
 
@@ -55,7 +56,34 @@ module.exports = fp((fastify, opts, next) => {
   /**
    * add OpenAPI docs (v3.0 aka swagger)
    */
-  fastify.register(swagger, config.swagger)
+  const swaggerConfig = config.swagger
+
+  /**
+   * prefer .openapi but use .swagger per default
+   */
+  const customSwaggerConfig = {
+    ...swaggerConfig.swagger,
+    ...swaggerConfig.openapi
+  }
+
+  fastify.register(swagger, {
+    ...swaggerConfig,
+
+    openapi: {
+      // customizable
+      ...customSwaggerConfig,
+
+      // default infos from package.json
+      info: {
+        title: pkg.name,
+        description: pkg.description,
+        version: pkg.version,
+
+        // but customizable
+        ...customSwaggerConfig.info
+      }
+    }
+  })
 
   /**
    * add helmet (http security headers)
@@ -63,6 +91,25 @@ module.exports = fp((fastify, opts, next) => {
   fastify.register(helmet, {
     contentSecurityPolicy: config.contentSecurityPolicy
   })
+
+  /**
+   * @see https://github.com/fastify/fastify-swagger#integration
+   */
+  // fastify.register(helmet, (instance) => {
+  //   console.log(helmet.contentSecurityPolicy.getDefaultDirectives())
+  //   console.log(instance.swaggerCSP)
+  //   return {
+  //     contentSecurityPolicy: {
+  //       directives: {
+  //         ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+  //         'form-action': ["'self'"],
+  //         'img-src': ["'self'", 'data:', 'validator.swagger.io'],
+  //         'script-src': ["'self'"].concat(instance.swaggerCSP.script),
+  //         'style-src': ["'self'", 'https:'].concat(instance.swaggerCSP.style)
+  //       }
+  //     }
+  //   }
+  // })
 
   /**
    * add sensible defaults

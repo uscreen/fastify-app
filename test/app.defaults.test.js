@@ -33,7 +33,7 @@ tap.test('basic bootstrapping without custom config', (t) => {
       t.same(fastify.config.swagger, {
         exposeRoute: true,
         openapi: {},
-        mode: 'dynamic'
+        uiConfig: { validatorUrl: null }
       })
       t.end()
     })
