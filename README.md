@@ -83,6 +83,63 @@ All options get validated and defaulted to a defined json-schema you can check i
 | __health__ (alias: `healthCheck`) | object configuring [under-pressure](https://github.com/fastify/under-pressure) to provide a monitoring healthcheck route for your app                                                                                                                                                     | `{exposeStatusRoute: true}`       | `{exposeStatusRoute: '/health'}`                                  |
 | __contentSecurityPolicy__         | object configuring [helmet](https://github.com/helmetjs/helmet) to set CSR headers on each response                                                                                                                                                                                       | `{contentSecurityPolicy: false}`  | `{contentSecurityPolicy: {directives: {defaultSrc: ["'self'"]}}}` |
 
+---
+
+## Howto add custom healthchecks
+
+decorate your `healthCheck` option with a custom function returning truthy on success, ie.:
+
+```js
+'use strict'
+
+const fastifyApp = require('@uscreen.de/fastify-app')
+const fp = require('fastify-plugin')
+const schemas = require('./schemas')
+
+module.exports = fp(async (fastify, opts, next) => {
+  /**
+   * add schemas
+   */
+  fastify.register(schemas)
+
+  /**
+   * configure healthcheck
+   */
+  opts.healthCheck = {
+    ...opts.healthCheck,
+
+    healthCheck: async () => {
+      /**
+       * check for proper mongo conenction
+       */
+      const collections = await fastify.mongo.db.collections()
+
+      /**
+       * check for proper nats connection
+       */
+      const natsConnected = await fastify.nats.testConnection()
+
+      /**
+       * check for proper redis connection
+       */
+      const redisConnected = await fastify.redis.ping()
+
+      /**
+       * true if all tests passed
+       */
+      return collections && natsConnected && redisConnected && true
+    }
+  }
+
+  /**
+   * register app
+   */
+  fastify.register(fastifyApp, opts)
+
+  next()
+})
+
+```
 
 ## Roadmap
 
