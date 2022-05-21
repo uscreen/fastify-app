@@ -6,10 +6,10 @@
 
 * decorates your app with __`name`__, __`version`__ and __`root`__-path read from package.json
 * decorates your app with any given __`config`__
-* provides __OpenAPI 3.0__ docs by use of [fastify-swagger](https://github.com/fastify/fastify-swagger)
-* enables extra __security__ headers as provided by __helmet__ [fastify-helmet](https://github.com/fastify/fastify-helmet)
-* provides extra __sensible defaults__ provided by [fastify-sensible](https://github.com/fastify/fastify-sensible)
-* uses [fastify-autoload](https://github.com/fastify/fastify-autoload) to __load plugins, models, services, whatever__ from configurable directories
+* provides __OpenAPI 3.0__ docs by use of [@fastify/swagger](https://github.com/fastify/fastify-swagger)
+* enables extra __security__ headers as provided by __helmet__ [@fastify/helmet](https://github.com/fastify/fastify-helmet)
+* provides extra __sensible defaults__ provided by [@fastify/sensible](https://github.com/fastify/fastify-sensible)
+* uses [@fastify/autoload](https://github.com/fastify/fastify-autoload) to __load plugins, models, services, whatever__ from configurable directories
 * provides __monitoring healthcheck__ endpoint by use of [under-pressure](https://github.com/fastify/under-pressure)
 
 All those features are ready setup with defaults, that may be customized further to your likings.
@@ -78,8 +78,8 @@ All options get validated and defaulted to a defined json-schema you can check i
 
 | option                            | Description                                                                                                                                                                                                                                                                               | Default                           | Example                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|-------------------------------------------------------------------|
-| __autoloads__                     | array of directories [fastify-autoload](https://github.com/fastify/fastify-autoload) should load your fastify plugins from. Please consider reading [Loading order of your plugins](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins) | `[]`                              | `['./plugins', './services']`                                     |
-| __swagger__                       | object configuring [fastify-swagger](https://github.com/fastify/fastify-swagger) to generate Swagger2/OpenAPI3 docs from your routes                                                                                                                                                                    | `{exposeRoute: true, openapi:{}}` | `{exposeRoute: '/docs'}`                                          |
+| __autoloads__                     | array of directories [@fastify/autoload](https://github.com/fastify/fastify-autoload) should load your fastify plugins from. Please consider reading [Loading order of your plugins](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins) | `[]`                              | `['./plugins', './services']`                                     |
+| __swagger__                       | object configuring [@fastify/swagger](https://github.com/fastify/fastify-swagger) to generate Swagger2/OpenAPI3 docs from your routes                                                                                                                                                      | `{exposeRoute: true, openapi:{}}` | `{exposeRoute: '/docs'}`                                          |
 | __health__ (alias: `healthCheck`) | object configuring [under-pressure](https://github.com/fastify/under-pressure) to provide a monitoring healthcheck route for your app                                                                                                                                                     | `{exposeStatusRoute: true}`       | `{exposeStatusRoute: '/health'}`                                  |
 | __contentSecurityPolicy__         | object configuring [helmet](https://github.com/helmetjs/helmet) to set CSR headers on each response                                                                                                                                                                                       | `{contentSecurityPolicy: false}`  | `{contentSecurityPolicy: {directives: {defaultSrc: ["'self'"]}}}` |
 
@@ -90,6 +90,17 @@ All options get validated and defaulted to a defined json-schema you can check i
 - maybe alias `openapi` to `swagger`
 
 ## Changelog
+
+### 0.8.3
+
+#### Changed
+
+- replaced fastify-[module] with their scoped versions (@fastify/autoload, @fastify/helmet, @fastify/sensible, @fastify/swagger)
+
+#### Fixed
+
+- fixed deprecation warning
+- fixed swagger /docs routes
 
 ### 0.8.0
 
