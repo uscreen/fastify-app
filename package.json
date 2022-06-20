@@ -14,13 +14,13 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@uscreen.de/eslint-config-prettystandard-node": "^0.2.1",
+    "@uscreen.de/eslint-config-prettystandard-node": "^0.2.4",
     "husky": "^8.0.1",
     "hyperid": "^3.0.0",
-    "lint-staged": "^13.0.1",
+    "lint-staged": "^13.0.2",
     "pino-pretty": "^8.0.0",
     "should": "^13.2.3",
-    "tap": "^16.2.0"
+    "tap": "^16.3.0"
   },
   "dependencies": {
     "@fastify/autoload": "^4.0.1",
