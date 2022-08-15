@@ -14,7 +14,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@uscreen.de/eslint-config-prettystandard-node": "^0.2.7",
+    "@uscreen.de/eslint-config-prettystandard-node": "^0.2.8",
     "husky": "^8.0.1",
     "hyperid": "^3.0.0",
     "lint-staged": "^13.0.3",
