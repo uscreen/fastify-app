@@ -1,6 +1,4 @@
-'use strict'
-
-const envSchema = require('env-schema')
+import envSchema from 'env-schema'
 
 const schema = {
   type: 'object',
@@ -52,7 +50,7 @@ const schema = {
   }
 }
 
-module.exports = (opts) => {
+export default (opts) => {
   if (opts.healthCheck && !opts.health) opts.health = opts.healthCheck
 
   const config = envSchema({

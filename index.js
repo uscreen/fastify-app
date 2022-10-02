@@ -1,19 +1,17 @@
-'use strict'
+import fs from 'fs'
+import path from 'path'
+import readPkgUp from 'read-pkg-up'
+import fp from 'fastify-plugin'
+import helmet from '@fastify/helmet'
+import sensible from '@fastify/sensible'
+import swagger from '@fastify/swagger'
+import autoload from '@fastify/autoload'
+import underPressure from 'under-pressure'
+import assign from 'assign-deep'
 
-const fs = require('fs')
-const path = require('path')
-const readPkgUp = require('read-pkg-up')
-const fp = require('fastify-plugin')
-const helmet = require('@fastify/helmet')
-const sensible = require('@fastify/sensible')
-const swagger = require('@fastify/swagger')
-const autoload = require('@fastify/autoload')
-const underPressure = require('under-pressure')
-const assign = require('assign-deep')
+import configure from './config.js'
 
-const configure = require('./config')
-
-module.exports = fp((fastify, opts, next) => {
+export default fp((fastify, opts, next) => {
   /**
    * verify config options
    */
@@ -137,7 +135,7 @@ module.exports = fp((fastify, opts, next) => {
    * post-treatment
    */
   fastify.ready((err) => {
-    /* istanbul ignore if */
+    /* c8 ignore next */
     if (err) throw err
     fastify.log.debug(
       `${fastify.name} (${fastify.app.version}) ready. pwd: ${fastify.root}`

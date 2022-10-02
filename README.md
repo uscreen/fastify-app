@@ -90,13 +90,11 @@ All options get validated and defaulted to a defined json-schema you can check i
 decorate your `healthCheck` option with a custom function returning truthy on success, ie.:
 
 ```js
-'use strict'
+import fastifyApp from '@uscreen.de/fastify-app'
+import fp from 'fastify-plugin'
+import schemas from './schemas.js'
 
-const fastifyApp = require('@uscreen.de/fastify-app')
-const fp = require('fastify-plugin')
-const schemas = require('./schemas')
-
-module.exports = fp(async (fastify, opts, next) => {
+export default fp(async (fastify, opts, next) => {
   /**
    * add schemas
    */
@@ -144,9 +142,15 @@ module.exports = fp(async (fastify, opts, next) => {
 ## Roadmap
 
 - add a server factory providing defaults for logging and generateId
-- maybe alias `openapi` to `swagger`
 
 ## Changelog
+
+### 1.0.0
+
+#### Changed
+
+- switch to __ESM only__
+- upgrade to fastify@4.x
 
 ### 0.8.3
 

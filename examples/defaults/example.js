@@ -1,9 +1,14 @@
-const hyperid = require('hyperid')
+import hyperid from 'hyperid'
+import app from 'fastify'
+
+// import @uscreen.de/fastify-app
+import defaultApp from '../../index.js'
+
 const name = 'example-app'
 const version = '0.1.0'
 const instance = hyperid({ urlSafe: true })
 
-const fastify = require('fastify')({
+const fastify = app({
   genReqId() {
     return instance()
   },
@@ -11,16 +16,9 @@ const fastify = require('fastify')({
   logger: {
     prettyPrint: true,
     level: 'debug',
-    name: `${name} (v${version}) ${process.env.NODE_APP_INSTANCE}`,
-    redact: {
-      paths: ['pattern'],
-      remove: true
-    }
+    name: `${name} (v${version}) ${process.env.NODE_APP_INSTANCE}`
   }
 })
-
-// require @uscreen.de/fastify-app
-const defaultApp = require('../../index')
 
 // register with defaults
 fastify.register(defaultApp)

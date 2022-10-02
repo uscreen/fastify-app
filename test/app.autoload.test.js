@@ -1,13 +1,13 @@
-const tap = require('tap')
-const path = require('path')
-const { build } = require('./helper')
+import tap from 'tap'
+import { join } from 'desm'
+import { build } from './helper.js'
 
 tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
   const fastify = build(t, {
     haZcustOmOption: 'yap',
     autoloads: [
-      path.join(__dirname, '/plugins'),
-      path.join(__dirname, '/nonexitingervices')
+      join(import.meta.url, '/plugins'),
+      join(import.meta.url, '/nonexitingervices')
     ]
   })
 
