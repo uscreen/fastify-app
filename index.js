@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import readPkgUp from 'read-pkg-up'
+import { readPackageUpSync } from 'read-pkg-up'
 import fp from 'fastify-plugin'
 import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
@@ -20,7 +20,7 @@ export default fp((fastify, opts, next) => {
   /**
    * read package information
    */
-  const pack = readPkgUp.sync()
+  const pack = readPackageUpSync()
   const pkg = {
     name: pack.packageJson.name,
     version: pack.packageJson.version,

@@ -31,11 +31,11 @@
     "@fastify/sensible": "^4.1.0",
     "@fastify/swagger": "^6.1.0",
     "assign-deep": "^1.0.1",
-    "env-schema": "^5.0.0",
+    "env-schema": "^5.1.0",
     "fastify": "^3.29.0",
     "fastify-plugin": "^3.0.1",
-    "pino-pretty": "^8.1.0",
-    "read-pkg-up": "^7.0.1",
+    "pino-pretty": "^9.1.0",
+    "read-pkg-up": "^9.1.0",
     "under-pressure": "^5.8.1"
   },
   "lint-staged": {
