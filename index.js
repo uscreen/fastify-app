@@ -6,7 +6,7 @@ import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
 import swagger from '@fastify/swagger'
 import autoload from '@fastify/autoload'
-import underPressure from 'under-pressure'
+import underPressure from '@fastify/under-pressure'
 import assign from 'assign-deep'
 
 import configure from './config.js'

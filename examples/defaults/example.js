@@ -10,20 +10,34 @@ const name = 'example-app'
 const version = '0.1.0'
 const instance = hyperid({ urlSafe: true })
 
+const envToLogger = {
+  development: {
+    level: config.logLevel,
+    name: `${name}@v${version}`,
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        sync: true,
+        translateTime: true,
+        ignore: 'pid,hostname'
+      }
+    }
+  },
+  production: {
+    level: config.logLevel,
+    name: `${name}@v${version}`
+  },
+  test: false
+}
+
+const environment = process.env.NODE_ENV || 'development'
+
 const fastify = app({
   genReqId() {
     return instance()
   },
 
-  logger: config.logEnabled
-    ? {
-        level: config.logLevel,
-        name: `${name} (v${version})`,
-        prettyPrint: config.logPretty
-          ? { translateTime: true, sync: true, colorize: true }
-          : false
-      }
-    : false
+  logger: envToLogger[environment] ?? true // defaults to true if no entry matches in the map
 })
 
 // register with defaults
@@ -58,7 +72,7 @@ process.on('SIGINT', shutdown)
 process.on('SIGTERM', shutdown)
 
 // Run the server!
-fastify.listen(3000, (err) => {
+fastify.listen({ port: 8000 }, (err) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
