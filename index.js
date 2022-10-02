@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
+import hyperid from 'hyperid'
 import fp from 'fastify-plugin'
 import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
@@ -8,8 +9,49 @@ import swagger from '@fastify/swagger'
 import autoload from '@fastify/autoload'
 import underPressure from '@fastify/under-pressure'
 import assign from 'assign-deep'
-
 import configure from './config.js'
+
+const instance = hyperid({ urlSafe: true })
+
+/**
+ * read package information
+ */
+const pack = readPackageUpSync()
+
+/**
+ * factory to provide id generator and
+ * logger defaults by environment
+ */
+export const options = (config = { logLevel: 'debug' }) => {
+  const { name, version } = pack.packageJson
+  const { NODE_ENV } = process.env
+
+  const envToLogger = {
+    development: {
+      level: config.logLevel,
+      name: `${name}@v${version}`,
+      transport: {
+        target: 'pino-pretty',
+        options: {
+          sync: true,
+          translateTime: true,
+          ignore: 'pid,hostname'
+        }
+      }
+    },
+    production: {
+      level: config.logLevel,
+      name: `${name}@v${version}`
+    },
+    test: false
+  }
+
+  return {
+    forceCloseConnections: true,
+    genReqId: instance,
+    logger: envToLogger[NODE_ENV || 'development'] ?? true // defaults to true if no entry matches in the map
+  }
+}
 
 export default fp((fastify, opts, next) => {
   /**

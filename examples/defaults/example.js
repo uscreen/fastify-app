@@ -1,54 +1,18 @@
-import app from 'fastify'
-import hyperid from 'hyperid'
+import Fastify from 'fastify'
 import stringify from 'json-stringify-pretty-compact'
 
 // import @uscreen.de/fastify-app
-import defaultApp from '../../index.js'
+import defaultApp, { options } from '../../index.js'
 import config from './config.js'
 
-const name = 'example-app'
-const version = '0.1.0'
-const instance = hyperid({ urlSafe: true })
-
-const envToLogger = {
-  development: {
-    level: config.logLevel,
-    name: `${name}@v${version}`,
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        sync: true,
-        translateTime: true,
-        ignore: 'pid,hostname'
-      }
-    }
-  },
-  production: {
-    level: config.logLevel,
-    name: `${name}@v${version}`
-  },
-  test: false
-}
-
-const environment = process.env.NODE_ENV || 'development'
-
-const fastify = app({
-  genReqId() {
-    return instance()
-  },
-
-  logger: envToLogger[environment] ?? true // defaults to true if no entry matches in the map
-})
+// create fastify instance with default options
+const fastify = Fastify(options(config))
 
 // register with defaults
 fastify.register(defaultApp)
 
 // Declare a route
-fastify.get('/', (request, reply) => {
-  reply.send({
-    hello: 'world'
-  })
-})
+fastify.get('/', () => ({ hello: 'world' }))
 
 // some more optional verbose output on ready
 fastify.ready((err) => {
@@ -68,6 +32,7 @@ const shutdown = async () => {
   await fastify.close()
   process.exit()
 }
+
 process.on('SIGINT', shutdown)
 process.on('SIGTERM', shutdown)
 

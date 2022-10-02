@@ -51,15 +51,37 @@ new-app
 
 ## Install (manual)
 
+fastify@v3.x:
+
 ```sh
-$ yarn add @uscreen.de/fastify-app # or use npm -i
+$ yarn add @uscreen.de/fastify-app
+```
+
+fastify@v4.x:
+
+```sh
+$ yarn add @uscreen.de/fastify-app@next
 ```
 
 ## Example (manual)
 
+Minimal example:
+
 ```js
-// require @uscreen.de/fastify-app
-const defaultApp = require('@uscreen.de/fastify-app')
+import defaultApp from '@uscreen.de/fastify-app'
+
+// register with defaults
+fastify.register(defaultApp)
+```
+
+With default server options for logging, etc.
+
+```js
+import Fastify from 'fastify'
+import defaultApp, { options } from '@uscreen.de/fastify-app'
+
+// create fastify instance with default options
+const fastify = Fastify(options())
 
 // register with defaults
 fastify.register(defaultApp)
@@ -141,7 +163,7 @@ export default fp(async (fastify, opts, next) => {
 
 ## Roadmap
 
-- add a server factory providing defaults for logging and generateId
+- TBD
 
 ## Changelog
 
@@ -151,6 +173,10 @@ export default fp(async (fastify, opts, next) => {
 
 - switch to __ESM only__
 - upgrade to fastify@4.x
+
+#### Added
+
+- a server options factory providing defaults for logging and generateId __options([config])__
 
 ### 0.8.3
 
