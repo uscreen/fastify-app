@@ -1,8 +1,10 @@
-import hyperid from 'hyperid'
 import app from 'fastify'
+import hyperid from 'hyperid'
+import stringify from 'json-stringify-pretty-compact'
 
 // import @uscreen.de/fastify-app
 import defaultApp from '../../index.js'
+import config from './config.js'
 
 const name = 'example-app'
 const version = '0.1.0'
@@ -13,11 +15,15 @@ const fastify = app({
     return instance()
   },
 
-  logger: {
-    prettyPrint: true,
-    level: 'debug',
-    name: `${name} (v${version}) ${process.env.NODE_APP_INSTANCE}`
-  }
+  logger: config.logEnabled
+    ? {
+        level: config.logLevel,
+        name: `${name} (v${version})`,
+        prettyPrint: config.logPretty
+          ? { translateTime: true, sync: true, colorize: true }
+          : false
+      }
+    : false
 })
 
 // register with defaults
@@ -34,10 +40,22 @@ fastify.get('/', (request, reply) => {
 fastify.ready((err) => {
   if (err) throw err
   fastify.log.debug(
-    'Application ready, routes are set:\n' + fastify.printRoutes()
+    'Application ready, routes are set:\n' +
+      fastify.printRoutes({ commonPrefix: false })
   )
-  fastify.log.debug('config', fastify.config)
+  fastify.log.debug(`config ${stringify(fastify.config)}`)
 })
+
+/**
+ * graceful shutdown (closing handles, etc.)
+ */
+const shutdown = async () => {
+  fastify.log.info(`application shutting down.`)
+  await fastify.close()
+  process.exit()
+}
+process.on('SIGINT', shutdown)
+process.on('SIGTERM', shutdown)
 
 // Run the server!
 fastify.listen(3000, (err) => {
