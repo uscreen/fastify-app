@@ -1,6 +1,6 @@
 {
   "name": "@uscreen.de/fastify-app",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "main": "index.js",
   "type": "module",
@@ -19,7 +19,6 @@
     "c8": "^7.12.0",
     "desm": "^1.3.0",
     "husky": "^8.0.1",
-    "hyperid": "^3.0.0",
     "json-stringify-pretty-compact": "^4.0.0",
     "lint-staged": "^13.0.3",
     "should": "^13.2.3",
@@ -35,6 +34,7 @@
     "env-schema": "^5.1.0",
     "fastify": "^4.9.2",
     "fastify-plugin": "^4.3.0",
+    "hyperid": "^3.0.0",
     "pino-pretty": "^9.1.1",
     "read-pkg-up": "^9.1.0"
   },
