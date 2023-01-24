@@ -30,7 +30,7 @@
     "assign-deep": "^1.0.1",
     "env-schema": "^5.0.0",
     "fastify": "^3.29.4",
-    "fastify-plugin": "^3.0.1",
+    "fastify-plugin": "^4.5.0",
     "read-pkg-up": "^7.0.1",
     "under-pressure": "^5.8.1"
   },
