@@ -9,6 +9,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    target-branch: "master"
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    target-branch: "next"
