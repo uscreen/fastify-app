@@ -3,7 +3,11 @@
   "version": "0.8.11",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "main": "index.js",
-  "repository": "git@gitlab.uscreen.net:uscreen/npm/fastify-app.git",
+  "homepage": "https://github.com/uscreen/fastify-app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uscreen/fastify-app.git"
+  },
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
   "license": "MIT",
   "scripts": {
