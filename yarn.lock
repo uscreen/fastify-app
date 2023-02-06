@@ -1891,9 +1891,9 @@ husky@^8.0.1:
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==
 
 hyperid@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/hyperid/-/hyperid-3.1.0.tgz#c7a989590901c0a5f11847c4090ff52003ec5be9"
-  integrity sha512-ejqC0aqua7caNiOAVIFnRCwFPKaSq9ev+a3aOG7A8dATW8aaUWpSpdV6S3jZywpg/7ysVsdzO6H+xS4aFBRL/w==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/hyperid/-/hyperid-3.1.1.tgz#50fe8a75ff3ada74dacaf5a3761fb031bdf541c7"
+  integrity sha512-RveV33kIksycSf7HLkq1sHB5wW0OwuX8ot8MYnY++gaaPXGFfKpBncHrAWxdpuEeRlazUMGWefwP1w6o6GaumA==
   dependencies:
     uuid "^8.3.2"
     uuid-parse "^1.1.0"
