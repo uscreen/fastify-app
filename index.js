@@ -6,6 +6,7 @@ import fp from 'fastify-plugin'
 import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
 import swagger from '@fastify/swagger'
+import swaggerUi from '@fastify/swagger-ui'
 import autoload from '@fastify/autoload'
 import underPressure from '@fastify/under-pressure'
 import assign from 'assign-deep'
@@ -124,6 +125,10 @@ export default fp((fastify, opts, next) => {
       }
     }
   })
+
+  if (swaggerConfig.exposeRoute) {
+    fastify.register(swaggerUi, swaggerConfig)
+  }
 
   /**
    * add helmet (http security headers)
