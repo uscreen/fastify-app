@@ -1,6 +1,6 @@
 {
   "name": "@uscreen.de/fastify-app",
-  "version": "0.8.11",
+  "version": "0.8.12",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "main": "index.js",
   "homepage": "https://github.com/uscreen/fastify-app",
