@@ -361,15 +361,15 @@
     readable-stream "^4.0.0"
 
 "@fastify/swagger-ui@^1.3.0":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@fastify/swagger-ui/-/swagger-ui-1.8.1.tgz#f65a3f78116b8fcb81904aa02385ad1e98750461"
-  integrity sha512-XMfLGZMXi5dl0Gy6R6tlistA4d0XlJJweUfQkPNVeeBq2hO03DmvtM5yrp8adF392Xoi+6rlGHFaneL9EQdsoA==
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@fastify/swagger-ui/-/swagger-ui-1.9.0.tgz#2a54e1b800691fb222219440686c81b1f20c3146"
+  integrity sha512-7RTq2bI2cg4k6WsY69k8MZ8GnH6VUSbczJGnTotUKH+fOY9Cg3y8NEvPUREfwRzguI+3N+v8gp6H0UAohayldA==
   dependencies:
     "@fastify/static" "^6.0.0"
     fastify-plugin "^4.0.0"
     openapi-types "^12.0.2"
     rfdc "^1.3.0"
-    yaml "^2.1.3"
+    yaml "^2.2.2"
 
 "@fastify/swagger@^8.3.1":
   version "8.6.0"
@@ -3984,7 +3984,7 @@ yaml@^1.10.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-yaml@^2.1.3, yaml@^2.2.2:
+yaml@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.2.2.tgz#ec551ef37326e6d42872dad1970300f8eb83a073"
   integrity sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==
