@@ -35,7 +35,7 @@
     "env-schema": "^5.0.0",
     "fastify": "^3.29.4",
     "fastify-plugin": "^3.0.1",
-    "read-pkg-up": "^7.0.1",
+    "read-pkg-up": "^8.0.0",
     "under-pressure": "^5.8.1"
   },
   "lint-staged": {
