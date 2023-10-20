@@ -1,7 +1,7 @@
 # fastify-app
 
 [![Test CI](https://github.com/uscreen/fastify-app/actions/workflows/main.yml/badge.svg)](https://github.com/uscreen/fastify-app/actions/workflows/node.js.yml)
-[![Test Coverage](https://coveralls.io/repos/github/uscreen/fastify-app/badge.svg?branch=master)](https://coveralls.io/github/uscreen/fastify-app?branch=master)
+[![Test Coverage](https://coveralls.io/repos/github/uscreen/fastify-app/badge.svg?branch=legacy)](https://coveralls.io/github/uscreen/fastify-app?branch=legacy)
 [![Known Vulnerabilities](https://snyk.io/test/github/uscreen/fastify-app/badge.svg?targetFile=package.json)](https://snyk.io/test/github/uscreen/fastify-app?targetFile=package.json)
 [![NPM Version](https://badge.fury.io/js/@uscreen.de%2Ffastify-app.svg)](https://badge.fury.io/js/@uscreen.de%2Ffastify-app)
 
