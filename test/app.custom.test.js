@@ -1,5 +1,5 @@
-const tap = require('tap')
-const { build } = require('./helper')
+import tap from 'tap'
+import { build } from './helper.js'
 
 tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
   const fastify = build(t, {
@@ -53,6 +53,36 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
           t.same(JSON.parse(response.body), {
             status: 'ok'
           })
+          t.end()
+        }
+      )
+    })
+
+    t.end()
+  })
+})
+
+tap.test('basic bootstrapping with `swagger.exposeRoute: false`', (t) => {
+  const fastify = build(t, {
+    swagger: {
+      exposeRoute: false
+    }
+  })
+
+  fastify.ready((err) => {
+    t.test('should not throw any error', (t) => {
+      t.error(err)
+      t.end()
+    })
+
+    t.test('should not provide openapi json url', (t) => {
+      fastify.inject(
+        {
+          method: 'GET',
+          url: '/documentation/json'
+        },
+        (e, response) => {
+          t.same(response.statusCode, 404)
           t.end()
         }
       )

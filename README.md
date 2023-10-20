@@ -1,7 +1,7 @@
 # fastify-app
 
 [![Test CI](https://github.com/uscreen/fastify-app/actions/workflows/main.yml/badge.svg)](https://github.com/uscreen/fastify-app/actions/workflows/node.js.yml)
-[![Test Coverage](https://coveralls.io/repos/github/uscreen/fastify-app/badge.svg?branch=master)](https://coveralls.io/github/uscreen/fastify-app?branch=master)
+[![Test Coverage](https://coveralls.io/repos/github/uscreen/fastify-app/badge.svg?branch=next)](https://coveralls.io/github/uscreen/fastify-app?branch=next)
 [![Known Vulnerabilities](https://snyk.io/test/github/uscreen/fastify-app/badge.svg?targetFile=package.json)](https://snyk.io/test/github/uscreen/fastify-app?targetFile=package.json)
 [![NPM Version](https://badge.fury.io/js/@uscreen.de%2Ffastify-app.svg)](https://badge.fury.io/js/@uscreen.de%2Ffastify-app)
 
@@ -56,15 +56,37 @@ new-app
 
 ## Install (manual)
 
+fastify@v3.x:
+
 ```sh
-$ yarn add @uscreen.de/fastify-app # or use npm -i
+$ yarn add @uscreen.de/fastify-app
+```
+
+fastify@v4.x:
+
+```sh
+$ yarn add @uscreen.de/fastify-app@next
 ```
 
 ## Example (manual)
 
+Minimal example:
+
 ```js
-// require @uscreen.de/fastify-app
-const defaultApp = require('@uscreen.de/fastify-app')
+import defaultApp from '@uscreen.de/fastify-app'
+
+// register with defaults
+fastify.register(defaultApp)
+```
+
+With default server options for logging, etc.
+
+```js
+import Fastify from 'fastify'
+import defaultApp, { options } from '@uscreen.de/fastify-app'
+
+// create fastify instance with default options
+const fastify = Fastify(options())
 
 // register with defaults
 fastify.register(defaultApp)
@@ -95,13 +117,11 @@ All options get validated and defaulted to a defined json-schema you can check i
 decorate your `healthCheck` option with a custom function returning truthy on success, ie.:
 
 ```js
-'use strict'
+import fastifyApp from '@uscreen.de/fastify-app'
+import fp from 'fastify-plugin'
+import schemas from './schemas.js'
 
-const fastifyApp = require('@uscreen.de/fastify-app')
-const fp = require('fastify-plugin')
-const schemas = require('./schemas')
-
-module.exports = fp(async (fastify, opts, next) => {
+export default fp(async (fastify, opts, next) => {
   /**
    * add schemas
    */
@@ -148,10 +168,20 @@ module.exports = fp(async (fastify, opts, next) => {
 
 ## Roadmap
 
-- add a server factory providing defaults for logging and generateId
-- maybe alias `openapi` to `swagger`
+- TBD
 
 ## Changelog
+
+### 1.0.0
+
+#### Changed
+
+- switch to __ESM only__
+- upgrade to fastify@4.x
+
+#### Added
+
+- a server options factory providing defaults for logging and generateId __options([config])__
 
 ### 0.8.3
 

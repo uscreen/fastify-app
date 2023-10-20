@@ -1,19 +1,60 @@
-'use strict'
+import fs from 'fs'
+import path from 'path'
+import { readPackageUpSync } from 'read-pkg-up'
+import hyperid from 'hyperid'
+import fp from 'fastify-plugin'
+import helmet from '@fastify/helmet'
+import sensible from '@fastify/sensible'
+import swagger from '@fastify/swagger'
+import swaggerUi from '@fastify/swagger-ui'
+import autoload from '@fastify/autoload'
+import underPressure from '@fastify/under-pressure'
+import assign from 'assign-deep'
+import configure from './config.js'
 
-const fs = require('fs')
-const path = require('path')
-const readPkgUp = require('read-pkg-up')
-const fp = require('fastify-plugin')
-const helmet = require('@fastify/helmet')
-const sensible = require('@fastify/sensible')
-const swagger = require('@fastify/swagger')
-const autoload = require('@fastify/autoload')
-const underPressure = require('under-pressure')
-const assign = require('assign-deep')
+const instance = hyperid({ urlSafe: true })
 
-const configure = require('./config')
+/**
+ * read package information
+ */
+const pack = readPackageUpSync()
 
-module.exports = fp((fastify, opts, next) => {
+/**
+ * factory to provide id generator and
+ * logger defaults by environment
+ */
+export const options = (config = { logLevel: 'debug' }) => {
+  const { name, version } = pack.packageJson
+  const { NODE_ENV } = process.env
+
+  const envToLogger = {
+    development: {
+      level: config.logLevel,
+      name: `${name}@v${version}`,
+      transport: {
+        target: 'pino-pretty',
+        options: {
+          sync: true,
+          translateTime: true,
+          ignore: 'pid,hostname'
+        }
+      }
+    },
+    production: {
+      level: config.logLevel,
+      name: `${name}@v${version}`
+    },
+    test: false
+  }
+
+  return {
+    forceCloseConnections: true,
+    genReqId: instance,
+    logger: envToLogger[NODE_ENV || 'development'] ?? true // defaults to true if no entry matches in the map
+  }
+}
+
+export default fp((fastify, opts, next) => {
   /**
    * verify config options
    */
@@ -22,7 +63,7 @@ module.exports = fp((fastify, opts, next) => {
   /**
    * read package information
    */
-  const pack = readPkgUp.sync()
+  const pack = readPackageUpSync()
   const pkg = {
     name: pack.packageJson.name,
     version: pack.packageJson.version,
@@ -85,6 +126,10 @@ module.exports = fp((fastify, opts, next) => {
     }
   })
 
+  if (swaggerConfig.exposeRoute) {
+    fastify.register(swaggerUi, swaggerConfig)
+  }
+
   /**
    * add helmet (http security headers)
    */
@@ -137,7 +182,7 @@ module.exports = fp((fastify, opts, next) => {
    * post-treatment
    */
   fastify.ready((err) => {
-    /* istanbul ignore if */
+    /* c8 ignore next */
     if (err) throw err
     fastify.log.debug(
       `${fastify.name} (${fastify.app.version}) ready. pwd: ${fastify.root}`

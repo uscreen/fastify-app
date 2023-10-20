@@ -1,8 +1,6 @@
-'use strict'
+import fp from 'fastify-plugin'
 
-const fp = require('fastify-plugin')
-
-module.exports = fp(function (fastify, opts, next) {
+export default fp(function (fastify, opts, next) {
   fastify.decorate('something2', function () {
     return 'works2'
   })
