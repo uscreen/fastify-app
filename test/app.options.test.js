@@ -78,5 +78,17 @@ tap.test('options()', (t) => {
     t.end()
   })
 
+  t.test('should pass through ajv option if set', (t) => {
+    const opts = options({ ajv: { coerceTypes: true } })
+
+    t.type(opts, 'object')
+    t.same(opts.forceCloseConnections, true)
+    t.type(opts.genReqId, 'function')
+    t.same(opts.logger.level, 'debug')
+    t.same(opts.logger.name, `${name}@v${version}`)
+    t.same(opts.ajv.coerceTypes, true)
+    t.end()
+  })
+
   t.end()
 })

@@ -23,13 +23,15 @@ const pack = readPackageUpSync()
  * factory to provide id generator and
  * logger defaults by environment
  */
-export const options = (config = { logLevel: 'debug' }) => {
+export const options = (config = {}) => {
+  const { ajv, logLevel = 'debug' } = config
+
   const { name, version } = pack.packageJson
   const { NODE_ENV } = process.env
 
   const envToLogger = {
     development: {
-      level: config.logLevel,
+      level: logLevel,
       name: `${name}@v${version}`,
       transport: {
         target: 'pino-pretty',
@@ -41,17 +43,19 @@ export const options = (config = { logLevel: 'debug' }) => {
       }
     },
     production: {
-      level: config.logLevel,
+      level: logLevel,
       name: `${name}@v${version}`
     },
     test: false
   }
 
-  return {
+  const opts = {
     forceCloseConnections: true,
     genReqId: instance,
     logger: envToLogger[NODE_ENV || 'development'] ?? true // defaults to true if no entry matches in the map
   }
+
+  return ajv ? { ...opts, ajv } : opts
 }
 
 export default fp((fastify, opts, next) => {
