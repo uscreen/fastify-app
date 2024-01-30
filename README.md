@@ -164,6 +164,12 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 1.1.0
+
+#### Changed
+
+- make `options` method pass through `ajv` property.
+
 ### 1.0.0
 
 #### Changed
