@@ -411,9 +411,9 @@
     mime "^3.0.0"
 
 "@fastify/sensible@^5.2.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fastify/sensible/-/sensible-5.5.0.tgz#6bbe3741439653f3f955021ffcda3f205bef8aad"
-  integrity sha512-D0zpl+nocsRXLceSbc4gasQaO3ZNQR4dy9Uu8Ym0mh8VUdrjpZ4g8Ca9O3pGXbBVOnPIGHUJNTV7Yf9dg/OYdg==
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@fastify/sensible/-/sensible-5.6.0.tgz#f2d0112989851bc4d3ca3e4a604bfc3e5b609366"
+  integrity sha512-Vq6Z2ZQy10GDqON+hvLF52K99s9et5gVVxTul5n3SIAf0Kq5QjPRUKkAMT3zPAiiGvoHtS3APa/3uaxfDgCODQ==
   dependencies:
     "@lukeed/ms" "^2.0.1"
     fast-deep-equal "^3.1.1"
