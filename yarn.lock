@@ -370,9 +370,9 @@
     fast-uri "^2.0.0"
 
 "@fastify/autoload@^5.7.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@fastify/autoload/-/autoload-5.9.0.tgz#6aa28c78cdb8ccce33c1686ed95904c5d9e125de"
-  integrity sha512-EM/2QKQW2oym0gwuPjhculnqbpqu0mWblxRJvYMTvb7SVRGWBh/SFWTtrNAb46fYIOirJUH95mc+dhYuFq99pg==
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@fastify/autoload/-/autoload-5.10.0.tgz#e839146ec59c2e9f79ee88d006fb5d1b1d922881"
+  integrity sha512-4A6s86qMbjcpWHmJL7cErtjIxOPuW8c67DLiuO8HoJQxuK97vaptoUnK5BTOwRg1ntYqfc3tjwerTTo5NQ3fEQ==
 
 "@fastify/deepmerge@^1.0.0":
   version "1.3.0"
