@@ -448,9 +448,9 @@
     yaml "^2.2.2"
 
 "@fastify/swagger@^8.3.1":
-  version "8.14.0"
-  resolved "https://registry.yarnpkg.com/@fastify/swagger/-/swagger-8.14.0.tgz#112625cf08d1e22e237cf01b38f080eb053da78b"
-  integrity sha512-sGiznEb3rl6pKGGUZ+JmfI7ct5cwbTQGo+IjewaTvtzfrshnryu4dZwEsjw0YHABpBA+kCz3kpRaHB7qpa67jg==
+  version "8.15.0"
+  resolved "https://registry.yarnpkg.com/@fastify/swagger/-/swagger-8.15.0.tgz#d13cadc1e7892e05c7c2bc0f24fd6cd723838b64"
+  integrity sha512-zy+HEEKFqPMS2sFUsQU5X0MHplhKJvWeohBwTCkBAJA/GDYGLGUWQaETEhptiqxK7Hs0fQB9B4MDb3pbwIiCwA==
   dependencies:
     fastify-plugin "^4.0.0"
     json-schema-resolver "^2.0.0"
