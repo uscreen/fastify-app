@@ -1,5 +1,5 @@
 import tap from 'tap'
-import { readPackageUpSync } from 'read-pkg-up'
+import { readPackageUpSync } from 'read-package-up'
 import { options } from '../index.js'
 
 const pack = readPackageUpSync()

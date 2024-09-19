@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { readPackageUpSync } from 'read-pkg-up'
+import { readPackageUpSync } from 'read-package-up'
 import hyperid from 'hyperid'
 import fp from 'fastify-plugin'
 import helmet from '@fastify/helmet'
