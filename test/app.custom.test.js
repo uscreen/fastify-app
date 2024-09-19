@@ -1,7 +1,8 @@
-import tap from 'tap'
+import test from 'node:test'
+import assert from 'node:assert/strict'
 import { build } from './helper.js'
 
-tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
+test('basic bootstrapping with some custom config and overwrites', (t, done) => {
   const fastify = build(t, {
     autoloads: ['one', 'two', 'three'],
     hazCustomConfig: true,
@@ -13,20 +14,20 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
     }
   })
 
-  fastify.ready((err) => {
-    t.test('should not throw any error', (t) => {
-      t.error(err)
-      t.end()
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
     })
 
-    t.test('should expose it`s config', (t) => {
-      t.type(fastify.config, 'object')
-      t.same(fastify.config.autoloads, ['one', 'two', 'three'])
-      t.same(fastify.config.hazCustomConfig, true)
-      t.end()
+    await t.test('should expose it`s config', (t, done) => {
+      assert.equal(typeof fastify.config, 'object')
+      assert.deepEqual(fastify.config.autoloads, ['one', 'two', 'three'])
+      assert.equal(fastify.config.hazCustomConfig, true)
+      done()
     })
 
-    t.test('should provide openapi json on custom url', (t) => {
+    await t.test('should provide openapi json on custom url', (t, done) => {
       fastify.inject(
         {
           method: 'GET',
@@ -34,60 +35,60 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
         },
         (e, response) => {
           const body = JSON.parse(response.body)
-          t.error(e)
-          t.ok(body.openapi)
-          t.end()
+          assert.ok(!e)
+          assert.ok(body.openapi)
+          done()
         }
       )
     })
 
-    t.test('should provide healthcheck on custom url', (t) => {
+    await t.test('should provide healthcheck on custom url', (t, done) => {
       fastify.inject(
         {
           method: 'GET',
           url: '/health'
         },
         (e, response) => {
-          t.error(e)
-          t.same(response.statusCode, 200)
-          t.same(JSON.parse(response.body), {
+          assert.ok(!e)
+          assert.equal(response.statusCode, 200)
+          assert.deepEqual(JSON.parse(response.body), {
             status: 'ok'
           })
-          t.end()
+          done()
         }
       )
     })
 
-    t.end()
+    done()
   })
 })
 
-tap.test('basic bootstrapping with `swagger.exposeRoute: false`', (t) => {
+test('basic bootstrapping with `swagger.exposeRoute: false`', (t, done) => {
   const fastify = build(t, {
     swagger: {
       exposeRoute: false
     }
   })
 
-  fastify.ready((err) => {
-    t.test('should not throw any error', (t) => {
-      t.error(err)
-      t.end()
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
     })
 
-    t.test('should not provide openapi json url', (t) => {
+    await t.test('should not provide openapi json url', (t, done) => {
       fastify.inject(
         {
           method: 'GET',
           url: '/documentation/json'
         },
         (e, response) => {
-          t.same(response.statusCode, 404)
-          t.end()
+          assert.equal(response.statusCode, 404)
+          done()
         }
       )
     })
 
-    t.end()
+    done()
   })
 })

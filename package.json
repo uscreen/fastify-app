@@ -14,9 +14,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint '**/*.js' --fix",
-    "test": "c8 tap",
-    "test:cov": "c8 --reporter=html --reporter=text tap",
-    "test:ci": "c8 --reporter=lcovonly tap",
+    "test": "node --test --test-reporter spec",
+    "test:cov": "c8 --reporter=html --reporter=text node --test",
+    "test:ci": "node --test",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -26,8 +26,7 @@
     "husky": "^8.0.3",
     "json-stringify-pretty-compact": "^4.0.0",
     "lint-staged": "^15.0.1",
-    "should": "^13.2.3",
-    "tap": "^16.3.2"
+    "should": "^13.2.3"
   },
   "dependencies": {
     "@fastify/autoload": "^6.0.0",

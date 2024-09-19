@@ -1,8 +1,9 @@
-import tap from 'tap'
+import test from 'node:test'
+import assert from 'node:assert/strict'
 import { join } from 'desm'
 import { build } from './helper.js'
 
-tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
+test('basic bootstrapping with some custom config and overwrites', (t, done) => {
   const fastify = build(t, {
     haZcustOmOption: 'yap',
     autoloads: [
@@ -11,34 +12,37 @@ tap.test('basic bootstrapping with some custom config and overwrites', (t) => {
     ]
   })
 
-  fastify.ready((err) => {
-    t.test('should not throw any error', (t) => {
-      t.error(err)
-      t.end()
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
     })
 
-    t.test('autoloaded plugins should be usable', (t) => {
+    await t.test('autoloaded plugins should be usable', (t, done) => {
       const works = fastify.something()
-      t.same(works, 'works')
-      t.end()
+      assert.equal(works, 'works')
+      done()
     })
 
-    t.test('autoloaded plugins should be configurable', (t) => {
+    await t.test('autoloaded plugins should be configurable', (t, done) => {
       const options = fastify.getOptions()
-      t.same(options.haZcustOmOption, 'yap')
-      t.end()
+      assert.equal(options.haZcustOmOption, 'yap')
+      done()
     })
 
-    t.test('autoloaded plugins should have access to global config', (t) => {
-      const options = fastify.getOptions()
-      t.same(options.swagger, {
-        exposeRoute: true,
-        openapi: {},
-        uiConfig: { validatorUrl: null }
-      })
-      t.end()
-    })
+    await t.test(
+      'autoloaded plugins should have access to global config',
+      (t, done) => {
+        const options = fastify.getOptions()
+        assert.deepEqual(options.swagger, {
+          exposeRoute: true,
+          openapi: {},
+          uiConfig: { validatorUrl: null }
+        })
+        done()
+      }
+    )
 
-    t.end()
+    done()
   })
 })

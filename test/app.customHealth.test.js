@@ -1,41 +1,42 @@
-import tap from 'tap'
+import test from 'node:test'
+import assert from 'node:assert/strict'
 import { build } from './helper.js'
 
-tap.test('health should handled as alias to healthCheck', (t) => {
+test('health should handled as alias to healthCheck', (t, done) => {
   const fastify = build(t, {
     health: {
       exposeStatusRoute: '/healthyStatus'
     }
   })
 
-  fastify.ready((err) => {
-    t.test('should not throw any error', (t) => {
-      t.error(err)
-      t.end()
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
     })
 
-    t.test('should expose it`s config', (t) => {
-      t.type(fastify.config, 'object')
-      t.end()
+    await t.test('should expose it`s config', (t, done) => {
+      assert.equal(typeof fastify.config, 'object')
+      done()
     })
 
-    t.test('should provide healthcheck on custom url', (t) => {
+    await t.test('should provide healthcheck on custom url', (t, done) => {
       fastify.inject(
         {
           method: 'GET',
           url: '/healthyStatus'
         },
         (e, response) => {
-          t.error(e)
-          t.same(response.statusCode, 200)
-          t.same(JSON.parse(response.body), {
+          assert.ok(!e)
+          assert.equal(response.statusCode, 200)
+          assert.deepEqual(JSON.parse(response.body), {
             status: 'ok'
           })
-          t.end()
+          done()
         }
       )
     })
 
-    t.end()
+    done()
   })
 })

@@ -15,7 +15,9 @@ export const build = (t, config = {}) => {
   app.register(fp(App), config)
 
   // tear down our app after we are done
-  t.teardown(app.close.bind(app))
+  t.after(async () => {
+    await app.close()
+  })
 
   return app
 }

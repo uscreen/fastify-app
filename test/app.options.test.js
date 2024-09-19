@@ -1,94 +1,93 @@
-import tap from 'tap'
+import test from 'node:test'
+import assert from 'node:assert/strict'
 import { readPackageUpSync } from 'read-package-up'
 import { options } from '../index.js'
 
 const pack = readPackageUpSync()
 const { name, version } = pack.packageJson
 
-tap.test('options()', (t) => {
+test('options()', async (t) => {
   t.afterEach(() => {
     delete process.env.NODE_ENV
   })
 
-  t.test('should return an object', (t) => {
+  await t.test('should return an object', (t, done) => {
     const opts = options()
-    t.type(opts, 'object')
-    t.end()
+    assert.equal(typeof opts, 'object')
+    done()
   })
 
-  t.test('should return development settings by default', (t) => {
+  await t.test('should return development settings by default', (t, done) => {
     delete process.env.NODE_ENV
     const opts = options()
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger.level, 'debug')
-    t.same(opts.logger.name, `${name}@v${version}`)
-    t.same(opts.logger.transport.target, 'pino-pretty')
-    t.type(opts.logger.transport.options, 'object')
-    t.same(opts.logger.transport.options.sync, true)
-    t.same(opts.logger.transport.options.translateTime, true)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger.level, 'debug')
+    assert.equal(opts.logger.name, `${name}@v${version}`)
+    assert.equal(opts.logger.transport.target, 'pino-pretty')
+    assert.equal(typeof opts.logger.transport.options, 'object')
+    assert.equal(opts.logger.transport.options.sync, true)
+    assert.equal(opts.logger.transport.options.translateTime, true)
+    done()
   })
 
-  t.test('should return test settings', (t) => {
+  await t.test('should return test settings', (t, done) => {
     process.env.NODE_ENV = 'test'
     const opts = options()
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger, false)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger, false)
+    done()
   })
 
-  t.test('should return production settings', (t) => {
+  await t.test('should return production settings', (t, done) => {
     process.env.NODE_ENV = 'production'
     const opts = options()
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger.level, 'debug')
-    t.same(opts.logger.name, `${name}@v${version}`)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger.level, 'debug')
+    assert.equal(opts.logger.name, `${name}@v${version}`)
+    done()
   })
 
-  t.test('should return fallback settings', (t) => {
+  await t.test('should return fallback settings', (t, done) => {
     process.env.NODE_ENV = 'foo'
     const opts = options()
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger, true)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger, true)
+    done()
   })
 
-  t.test('should return custom settings', (t) => {
+  await t.test('should return custom settings', (t, done) => {
     process.env.NODE_ENV = 'production'
     const opts = options({ logLevel: 'info' })
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger.level, 'info')
-    t.same(opts.logger.name, `${name}@v${version}`)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger.level, 'info')
+    assert.equal(opts.logger.name, `${name}@v${version}`)
+    done()
   })
 
-  t.test('should pass through ajv option if set', (t) => {
+  await t.test('should pass through ajv option if set', (t, done) => {
     const opts = options({ ajv: { coerceTypes: true } })
 
-    t.type(opts, 'object')
-    t.same(opts.forceCloseConnections, true)
-    t.type(opts.genReqId, 'function')
-    t.same(opts.logger.level, 'debug')
-    t.same(opts.logger.name, `${name}@v${version}`)
-    t.same(opts.ajv.coerceTypes, true)
-    t.end()
+    assert.equal(typeof opts, 'object')
+    assert.equal(opts.forceCloseConnections, true)
+    assert.equal(typeof opts.genReqId, 'function')
+    assert.equal(opts.logger.level, 'debug')
+    assert.equal(opts.logger.name, `${name}@v${version}`)
+    assert.equal(opts.ajv.coerceTypes, true)
+    done()
   })
-
-  t.end()
 })
