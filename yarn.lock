@@ -459,9 +459,9 @@
     yaml "^2.2.2"
 
 "@fastify/under-pressure@^8.2.0":
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/@fastify/under-pressure/-/under-pressure-8.5.1.tgz#398e03bc26c2009e8982f5d2e8e6f4add435706b"
-  integrity sha512-4PRp1Y29yNSqNnMIwL9CyBtNP6rqLnY0JmZ0TMzCYj28k9Lw0nrqI6A2JxNQZd0jzbls/8LN4TcuRW2HEqQVmw==
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@fastify/under-pressure/-/under-pressure-8.5.2.tgz#b9e703cd7cd7148501ff63d745332e625b53117f"
+  integrity sha512-aFLFN2Vt1UPlt4b1m1wEr8eOzwcPUKNhda6g9OFbQ+pHLE6aStm2nGrd7DujqHFJBYEf1j6mPh0ZpsZIqQQz2Q==
   dependencies:
     "@fastify/error" "^3.0.0"
     fastify-plugin "^4.0.0"
