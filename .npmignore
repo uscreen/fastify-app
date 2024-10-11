@@ -2,7 +2,7 @@ examples
 coverage
 .nyc_output
 /node_modules
-/yarn-error.log
+/pnpm-lock.yaml
 /.vscode
 .env
 /.nyc_output

@@ -12,6 +12,7 @@
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint '**/*.js' --fix",
     "test": "c8 tap",
     "test:cov": "c8 --reporter=html --reporter=text tap",
