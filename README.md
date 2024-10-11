@@ -164,6 +164,12 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 2.0.0
+
+#### Changed
+
+- upgrade to fastify@5.x
+
 ### 1.1.0
 
 #### Changed
