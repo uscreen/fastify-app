@@ -164,6 +164,12 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 2.1.0
+
+#### Changed
+
+- make `options` method pass through `trustProxy` property.
+
 ### 2.0.0
 
 #### Changed
