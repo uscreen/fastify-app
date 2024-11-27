@@ -23,6 +23,7 @@ test('options()', async (t) => {
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, false)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger.level, 'debug')
     assert.equal(opts.logger.name, `${name}@v${version}`)
@@ -39,6 +40,7 @@ test('options()', async (t) => {
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, false)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger, false)
     done()
@@ -50,6 +52,7 @@ test('options()', async (t) => {
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, false)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger.level, 'debug')
     assert.equal(opts.logger.name, `${name}@v${version}`)
@@ -62,6 +65,7 @@ test('options()', async (t) => {
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, false)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger, true)
     done()
@@ -69,10 +73,11 @@ test('options()', async (t) => {
 
   await t.test('should return custom settings', (t, done) => {
     process.env.NODE_ENV = 'production'
-    const opts = options({ logLevel: 'info' })
+    const opts = options({ logLevel: 'info', trustProxy: true })
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, true)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger.level, 'info')
     assert.equal(opts.logger.name, `${name}@v${version}`)
@@ -84,6 +89,7 @@ test('options()', async (t) => {
 
     assert.equal(typeof opts, 'object')
     assert.equal(opts.forceCloseConnections, true)
+    assert.equal(opts.trustProxy, false)
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger.level, 'debug')
     assert.equal(opts.logger.name, `${name}@v${version}`)

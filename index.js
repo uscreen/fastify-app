@@ -24,7 +24,7 @@ const pack = readPackageUpSync()
  * logger defaults by environment
  */
 export const options = (config = {}) => {
-  const { ajv, logLevel = 'debug' } = config
+  const { ajv, logLevel = 'debug', trustProxy = false } = config
 
   const { name, version } = pack.packageJson
   const { NODE_ENV } = process.env
@@ -51,6 +51,7 @@ export const options = (config = {}) => {
 
   const opts = {
     forceCloseConnections: true,
+    trustProxy,
     genReqId: instance,
     logger: envToLogger[NODE_ENV || 'development'] ?? true // defaults to true if no entry matches in the map
   }
