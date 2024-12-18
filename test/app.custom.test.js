@@ -31,7 +31,7 @@ test('basic bootstrapping with some custom config and overwrites', (t, done) => 
       fastify.inject(
         {
           method: 'GET',
-          url: '/docs/json'
+          url: '/docs/openapi.json'
         },
         (e, response) => {
           const body = JSON.parse(response.body)

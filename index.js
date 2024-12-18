@@ -6,7 +6,7 @@ import fp from 'fastify-plugin'
 import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
 import swagger from '@fastify/swagger'
-import swaggerUi from '@fastify/swagger-ui'
+import ScalarApiReference from '@scalar/fastify-api-reference'
 import autoload from '@fastify/autoload'
 import underPressure from '@fastify/under-pressure'
 import assign from 'assign-deep'
@@ -59,7 +59,7 @@ export const options = (config = {}) => {
   return ajv ? { ...opts, ajv } : opts
 }
 
-export default fp((fastify, opts, next) => {
+export default fp(async (fastify, opts) => {
   /**
    * verify config options
    */
@@ -124,7 +124,7 @@ export default fp((fastify, opts, next) => {
   })
 
   if (swaggerConfig.exposeRoute) {
-    fastify.register(swaggerUi, swaggerConfig)
+    await fastify.register(ScalarApiReference, swaggerConfig)
   }
 
   /**
@@ -200,6 +200,4 @@ export default fp((fastify, opts, next) => {
     reply.header('X-XSS-Protection', '1; mode=block')
     return payload
   })
-
-  next()
 })
