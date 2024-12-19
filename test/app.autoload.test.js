@@ -37,7 +37,7 @@ test('basic bootstrapping with some custom config and overwrites', (t, done) => 
         assert.deepEqual(options.swagger, {
           exposeRoute: true,
           openapi: {},
-          uiConfig: { validatorUrl: null }
+          scalar: {}
         })
         done()
       }

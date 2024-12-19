@@ -17,7 +17,7 @@ const schema = {
         openapi: {
           default: {}
         },
-        uiConfig: { default: { validatorUrl: null } }
+        scalar: { default: {} }
       }
     },
     health: {

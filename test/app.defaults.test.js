@@ -34,7 +34,7 @@ test('basic bootstrapping without custom config', (t, done) => {
       assert.deepEqual(fastify.config.swagger, {
         exposeRoute: true,
         openapi: {},
-        uiConfig: { validatorUrl: null }
+        scalar: {}
       })
       done()
     })

@@ -102,14 +102,18 @@ export default fp(async (fastify, opts) => {
   /**
    * add OpenAPI docs (v3.0 aka swagger)
    */
-  const swaggerConfig = config.swagger
+  const {
+    scalar: scalarConfig,
+    openapi: openapiConfig,
+    ...swaggerConfig
+  } = config.swagger
 
   fastify.register(swagger, {
     ...swaggerConfig,
 
     openapi: {
       // customizable
-      ...swaggerConfig.openapi,
+      ...openapiConfig,
 
       // default infos from package.json
       info: {
@@ -118,13 +122,19 @@ export default fp(async (fastify, opts) => {
         version: pkg.version,
 
         // but customizable
-        ...swaggerConfig.openapi.info
+        ...openapiConfig.info
       }
     }
   })
 
+  /**
+   * add Scalar Client (if enabled)
+   */
   if (swaggerConfig.exposeRoute) {
-    await fastify.register(ScalarApiReference, swaggerConfig)
+    await fastify.register(ScalarApiReference, {
+      ...swaggerConfig,
+      configuration: scalarConfig
+    })
   }
 
   /**
