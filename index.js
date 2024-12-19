@@ -104,20 +104,12 @@ export default fp((fastify, opts, next) => {
    */
   const swaggerConfig = config.swagger
 
-  /**
-   * prefer .openapi but use .swagger per default
-   */
-  const customSwaggerConfig = {
-    ...swaggerConfig.swagger,
-    ...swaggerConfig.openapi
-  }
-
   fastify.register(swagger, {
     ...swaggerConfig,
 
     openapi: {
       // customizable
-      ...customSwaggerConfig,
+      ...swaggerConfig.openapi,
 
       // default infos from package.json
       info: {
@@ -126,7 +118,7 @@ export default fp((fastify, opts, next) => {
         version: pkg.version,
 
         // but customizable
-        ...customSwaggerConfig.info
+        ...swaggerConfig.openapi.info
       }
     }
   })
