@@ -4,13 +4,14 @@ import { build } from './helper.js'
 
 test('basic bootstrapping with some custom config and overwrites', (t, done) => {
   const fastify = build(t, {
+    prefix: '/api',
     autoloads: ['one', 'two', 'three'],
     hazCustomConfig: true,
     swagger: {
-      routePrefix: '/docs'
+      routePrefix: '/api/refs'
     },
     healthCheck: {
-      exposeStatusRoute: '/health'
+      exposeStatusRoute: '/api/healthcheck'
     }
   })
 
@@ -31,7 +32,7 @@ test('basic bootstrapping with some custom config and overwrites', (t, done) => 
       fastify.inject(
         {
           method: 'GET',
-          url: '/docs/openapi.json'
+          url: '/api/refs/openapi.json'
         },
         (e, response) => {
           const body = JSON.parse(response.body)
@@ -46,7 +47,7 @@ test('basic bootstrapping with some custom config and overwrites', (t, done) => 
       fastify.inject(
         {
           method: 'GET',
-          url: '/health'
+          url: '/api/healthcheck'
         },
         (e, response) => {
           assert.ok(!e)
@@ -88,6 +89,59 @@ test('basic bootstrapping with `swagger.exposeRoute: false`', (t, done) => {
         }
       )
     })
+
+    done()
+  })
+})
+
+test('basic bootstrapping with default except `prefix` being set', (t, done) => {
+  const fastify = build(t, {
+    prefix: '/api'
+  })
+
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
+    })
+
+    await t.test(
+      'should provide openapi json on default url with custom prefix',
+      (t, done) => {
+        fastify.inject(
+          {
+            method: 'GET',
+            url: '/api/docs/openapi.json'
+          },
+          (e, response) => {
+            const body = JSON.parse(response.body)
+            assert.ok(!e)
+            assert.ok(body.openapi)
+            done()
+          }
+        )
+      }
+    )
+
+    await t.test(
+      'should provide healthcheck on default url with custom prefix',
+      (t, done) => {
+        fastify.inject(
+          {
+            method: 'GET',
+            url: '/api/health'
+          },
+          (e, response) => {
+            assert.ok(!e)
+            assert.equal(response.statusCode, 200)
+            assert.deepEqual(JSON.parse(response.body), {
+              status: 'ok'
+            })
+            done()
+          }
+        )
+      }
+    )
 
     done()
   })

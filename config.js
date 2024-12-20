@@ -3,6 +3,10 @@ import envSchema from 'env-schema'
 const schema = {
   type: 'object',
   properties: {
+    prefix: {
+      type: 'string',
+      default: ''
+    },
     autoloads: {
       type: 'array',
       default: []
@@ -11,6 +15,10 @@ const schema = {
       type: 'object',
       default: {},
       properties: {
+        routePrefix: {
+          type: 'string'
+          // no default, we set it dynamically below if not set
+        },
         exposeRoute: {
           default: true
         },
@@ -26,6 +34,7 @@ const schema = {
       properties: {
         exposeStatusRoute: {
           default: true
+          // default true, we set route dynamically below if not explicitely set
         },
         maxEventLoopDelay: {
           default: 1000
@@ -57,6 +66,15 @@ export default (opts) => {
     schema,
     data: opts
   })
+
+  // set swagger route prefix to default, if not set:
+  config.swagger.routePrefix =
+    config.swagger.routePrefix ?? `${config.prefix}/docs`
+
+  // set healthcheck route to default, if enabled, but not set:
+  if (config.health.exposeStatusRoute === true) {
+    config.health.exposeStatusRoute = `${config.prefix}/health`
+  }
 
   return config
 }

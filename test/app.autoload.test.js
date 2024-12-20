@@ -36,6 +36,7 @@ test('basic bootstrapping with some custom config and overwrites', (t, done) => 
         const options = fastify.getOptions()
         assert.deepEqual(options.swagger, {
           exposeRoute: true,
+          routePrefix: '/docs',
           openapi: {},
           scalar: {}
         })

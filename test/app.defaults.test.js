@@ -33,6 +33,7 @@ test('basic bootstrapping without custom config', (t, done) => {
       assert.deepEqual(fastify.config.autoloads, [])
       assert.deepEqual(fastify.config.swagger, {
         exposeRoute: true,
+        routePrefix: '/docs',
         openapi: {},
         scalar: {}
       })
@@ -43,7 +44,7 @@ test('basic bootstrapping without custom config', (t, done) => {
       fastify.inject(
         {
           method: 'GET',
-          url: '/reference/openapi.json'
+          url: '/docs/openapi.json'
         },
         (e, response) => {
           const body = JSON.parse(response.body)
@@ -100,7 +101,7 @@ test('basic bootstrapping without custom config', (t, done) => {
         fastify.inject(
           {
             method: 'GET',
-            url: '/status'
+            url: '/health'
           },
           (e, response) => {
             assert.ok(!e)
