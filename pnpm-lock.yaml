@@ -14,6 +14,9 @@ importers:
       '@fastify/helmet':
         specifier: ^12.0.1
         version: 12.0.1
+      '@fastify/one-line-logger':
+        specifier: ^2.0.1
+        version: 2.0.1
       '@fastify/sensible':
         specifier: ^6.0.1
         version: 6.0.1
@@ -41,9 +44,6 @@ importers:
       hyperid:
         specifier: ^3.3.0
         version: 3.3.0
-      pino-pretty:
-        specifier: ^11.2.2
-        version: 11.2.2
       read-package-up:
         specifier: ^11.0.0
         version: 11.0.0
@@ -122,6 +122,9 @@ packages:
 
   '@fastify/merge-json-schemas@0.1.1':
     resolution: {integrity: sha512-fERDVz7topgNjtXsJTTW1JKLy0rhuLRcquYqNR9rF7OcVpCa2OVW49ZPDIhaRRCaUuvVxI+N416xUoF76HNSXA==}
+
+  '@fastify/one-line-logger@2.0.1':
+    resolution: {integrity: sha512-WaSYYwrgGgzKompZZ7QOO7XIZXThy5GL7Opj7UwkHxdwVJyrUaoAvNuBnN9oO5TfluyrTo0HH5UniN40PI8mKg==}
 
   '@fastify/sensible@6.0.1':
     resolution: {integrity: sha512-D0rN0kMeZKP23f4w9MoCI9e4+n7vASFAsGoRNn9bondSbplLeIfR2HcjCbyElAM04jGrPRLi/edyThEPOyC9cQ==}
@@ -1784,6 +1787,10 @@ snapshots:
   '@fastify/merge-json-schemas@0.1.1':
     dependencies:
       fast-deep-equal: 3.1.3
+
+  '@fastify/one-line-logger@2.0.1':
+    dependencies:
+      pino-pretty: 11.2.2
 
   '@fastify/sensible@6.0.1':
     dependencies:

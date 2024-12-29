@@ -27,10 +27,9 @@ test('options()', async (t) => {
     assert.equal(typeof opts.genReqId, 'function')
     assert.equal(opts.logger.level, 'debug')
     assert.equal(opts.logger.name, `${name}@v${version}`)
-    assert.equal(opts.logger.transport.target, 'pino-pretty')
+    assert.equal(opts.logger.transport.target, '@fastify/one-line-logger')
     assert.equal(typeof opts.logger.transport.options, 'object')
-    assert.equal(opts.logger.transport.options.sync, true)
-    assert.equal(opts.logger.transport.options.translateTime, true)
+    assert.equal(opts.logger.transport.options.colorize, true)
     done()
   })
 

@@ -34,12 +34,8 @@ export const options = (config = {}) => {
       level: logLevel,
       name: `${name}@v${version}`,
       transport: {
-        target: 'pino-pretty',
-        options: {
-          sync: true,
-          translateTime: true,
-          ignore: 'pid,hostname'
-        }
+        target: '@fastify/one-line-logger',
+        options: { colorize: true }
       }
     },
     production: {
