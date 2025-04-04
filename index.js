@@ -27,29 +27,19 @@ export const options = (config = {}) => {
   const { ajv, logLevel = 'debug', trustProxy = false } = config
 
   const { name, version } = pack.packageJson
-  const { NODE_ENV } = process.env
 
-  const envToLogger = {
-    development: {
+  const opts = {
+    forceCloseConnections: true,
+    trustProxy,
+    genReqId: instance,
+    logger: {
       level: logLevel,
       name: `${name}@v${version}`,
       transport: {
         target: '@fastify/one-line-logger',
         options: { colorize: true }
       }
-    },
-    production: {
-      level: logLevel,
-      name: `${name}@v${version}`
-    },
-    test: false
-  }
-
-  const opts = {
-    forceCloseConnections: true,
-    trustProxy,
-    genReqId: instance,
-    logger: envToLogger[NODE_ENV || 'development'] ?? true // defaults to true if no entry matches in the map
+    }
   }
 
   return ajv ? { ...opts, ajv } : opts
