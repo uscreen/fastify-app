@@ -165,6 +165,21 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 3.0.0
+
+#### Added
+
+- support for Node.js v22
+
+#### Changed
+
+- use Scalar instead of Swagger-UI
+- use @fastify/one-line-logger instead of pino-pretty
+
+#### Removed
+
+- support for Swagger (OpenAPI v2)
+
 ### 2.1.0
 
 #### Changed
