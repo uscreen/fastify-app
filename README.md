@@ -21,18 +21,20 @@ All those features are ready setup with defaults, that may be customized further
 
 ## Get Started (cli)
 
-Easy start by `yarn create` cli command to create a new fastify-app from scratch instead of manually setting up a new fastify instance, like so:
+Easy start by `pnpm create` cli command to create a new fastify-app from scratch instead of manually setting up a new fastify instance, like so:
 
 ```bash
-$ yarn create @uscreen.de/fastify-app new-app
+$ pnpm create @uscreen.de/fastify-app new-app
 ```
 
-and follow instructions. It will create a directory called `new-app` inside the current folder.
-Inside that directory, it will generate the initial project structure and install any dependencies:
+It will create a directory called `new-app` inside the current folder.
+Inside that directory, it will generate the initial project structure:
 
 ```bash
 new-app
-├── Makefile
+├── .env
+├── .env.example
+├── .gitignore
 ├── README.md
 ├── app
 │   ├── app.js
@@ -44,12 +46,10 @@ new-app
 │   └── services
 │       └── noop.js
 ├── package.json
-├── pm2-dev.config.js
-├── pm2.config.js
-├── test
-│   ├── helper.js
-│   └── noop.test.js
-└── yarn.lock
+└── test
+    ├── app
+    │   └── noop.test.js
+    └── helper.js
 ```
 
 ---
@@ -57,7 +57,7 @@ new-app
 ## Install (manual)
 
 ```sh
-$ yarn add @uscreen.de/fastify-app # or use npm -i
+$ pnpm add @uscreen.de/fastify-app # or use npm -i
 ```
 
 ## Example (manual)
@@ -164,6 +164,12 @@ export default fp(async (fastify, opts, next) => {
 - TBD
 
 ## Changelog
+
+### 3.0.1
+
+#### Changed
+
+- update readme to changes in @uscreen.de/create-fastify-app
 
 ### 3.0.0
 

@@ -5,7 +5,7 @@ name: Test CI
 
 on:
   push:
-    branches: ["main", "legacy", "feature/pnpm-github-workflow"]
+    branches: ["main", "legacy"]
   pull_request:
     branches: ["main", "legacy"]
 
