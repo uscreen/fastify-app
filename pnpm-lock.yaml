@@ -37,7 +37,7 @@ importers:
         version: 6.0.1
       fastify:
         specifier: ^5.0.0
-        version: 5.3.2
+        version: 5.3.3
       fastify-plugin:
         specifier: ^5.0.1
         version: 5.0.1
@@ -758,8 +758,8 @@ packages:
   fastify-plugin@5.0.1:
     resolution: {integrity: sha512-HCxs+YnRaWzCl+cWRYFnHmeRFyR5GVnJTAaCJQiYzQSDwK9MgJdyAsuL3nh0EWRCYMgQ5MeziymvmAhUHYHDUQ==}
 
-  fastify@5.3.2:
-    resolution: {integrity: sha512-AIPqBgtqBAwkOkrnwesEE+dOyU30dQ4kh7udxeGVR05CRGwubZx+p2H8P0C4cRnQT0+EPK4VGea2DTL2RtWttg==}
+  fastify@5.3.3:
+    resolution: {integrity: sha512-nCBiBCw9q6jPx+JJNVgO8JVnTXeUyrGcyTKPQikRkA/PanrFcOIo4R+ZnLeOLPZPGgzjomqfVarzE0kYx7qWiQ==}
 
   fastq@1.19.1:
     resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
@@ -1325,8 +1325,8 @@ packages:
   pino-std-serializers@7.0.0:
     resolution: {integrity: sha512-e906FRY0+tV27iq4juKzSYPbUj2do2X2JX4EzSca1631EB2QJQUqGbDuERal7LCtOpxl6x3+nvo9NPZcmjkiFA==}
 
-  pino@9.6.0:
-    resolution: {integrity: sha512-i85pKRCt4qMjZ1+L7sy2Ag4t1atFcdbEt76+7iRJn1g2BvsnRMGu9p8pivl9fs63M2kF/A0OacFZhTub+m/qMg==}
+  pino@9.7.0:
+    resolution: {integrity: sha512-vnMCM6xZTb1WDmLvtG2lE/2p+t9hDEIvTWJsu6FejkE62vB7gDhvzrpFR4Cw2to+9JNQxVnkAKVPA1KPB98vWg==}
     hasBin: true
 
   possible-typed-array-names@1.0.0:
@@ -1449,8 +1449,8 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.7.1:
-    resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
+  semver@7.7.2:
+    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2079,7 +2079,7 @@ snapshots:
 
   builtins@5.1.0:
     dependencies:
-      semver: 7.7.1
+      semver: 7.7.2
 
   c8@10.1.3:
     dependencies:
@@ -2405,7 +2405,7 @@ snapshots:
       is-core-module: 2.15.1
       minimatch: 3.1.2
       resolve: 1.22.8
-      semver: 7.7.1
+      semver: 7.7.2
 
   eslint-plugin-node@11.1.0(eslint@8.57.1):
     dependencies:
@@ -2559,7 +2559,7 @@ snapshots:
 
   fastify-plugin@5.0.1: {}
 
-  fastify@5.3.2:
+  fastify@5.3.3:
     dependencies:
       '@fastify/ajv-compiler': 4.0.2
       '@fastify/error': 4.1.0
@@ -2570,11 +2570,11 @@ snapshots:
       fast-json-stringify: 6.0.1
       find-my-way: 9.3.0
       light-my-request: 6.6.0
-      pino: 9.6.0
+      pino: 9.7.0
       process-warning: 5.0.0
       rfdc: 1.4.1
       secure-json-parse: 4.0.0
-      semver: 7.7.1
+      semver: 7.7.2
       toad-cache: 3.7.0
 
   fastq@1.19.1:
@@ -2970,7 +2970,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.7.1
+      semver: 7.7.2
 
   media-typer@0.3.0: {}
 
@@ -3012,7 +3012,7 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.7.1
+      semver: 7.7.2
       validate-npm-package-license: 3.0.4
 
   npm-run-path@5.3.0:
@@ -3137,14 +3137,14 @@ snapshots:
 
   pino-std-serializers@7.0.0: {}
 
-  pino@9.6.0:
+  pino@9.7.0:
     dependencies:
       atomic-sleep: 1.0.0
       fast-redact: 3.5.0
       on-exit-leak-free: 2.1.2
       pino-abstract-transport: 2.0.0
       pino-std-serializers: 7.0.0
-      process-warning: 4.0.1
+      process-warning: 5.0.0
       quick-format-unescaped: 4.0.4
       real-require: 0.2.0
       safe-stable-stringify: 2.5.0
@@ -3257,7 +3257,7 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.7.1: {}
+  semver@7.7.2: {}
 
   set-cookie-parser@2.7.1: {}
 
