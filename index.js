@@ -28,13 +28,18 @@ export const options = (config = {}) => {
 
   const { name, version } = pack.packageJson
 
+  /**
+   * set logger name by config or package information
+   */
+  const loggerName = config.logger?.name || `${name}@v${version}`
+
   const opts = {
     forceCloseConnections: true,
     trustProxy,
     genReqId: instance,
     logger: {
       level: logLevel,
-      name: `${name}@v${version}`,
+      name: loggerName,
       transport: {
         target: '@fastify/one-line-logger',
         options: { colorize: true }

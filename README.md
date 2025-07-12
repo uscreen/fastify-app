@@ -165,6 +165,12 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 3.1.0
+
+#### Added
+
+- config.logger.name to set logger name as config injection, ie: `config.logger.name = 'my-app'`
+
 ### 3.0.1
 
 #### Changed

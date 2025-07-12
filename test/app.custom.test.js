@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { build } from './helper.js'
+import { build, buildWithOptions } from './helper.js'
 
 test('basic bootstrapping with some custom config and overwrites', (t, done) => {
   const fastify = build(t, {
@@ -88,6 +88,47 @@ test('basic bootstrapping with `swagger.exposeRoute: false`', (t, done) => {
           done()
         }
       )
+    })
+
+    done()
+  })
+})
+
+test('basic bootstrapping with custom logger name', (t, done) => {
+  const customLoggerName = 'my-custom-test-app'
+
+  const fastify = buildWithOptions(t, {
+    logger: {
+      name: customLoggerName,
+    }
+  })
+
+  fastify.ready(async (err) => {
+    await t.test('should not throw any error', (t, done) => {
+      assert.ok(!err)
+      done()
+    })
+
+    await t.test('should configure logger with custom name', (t, done) => {
+      // Verify that the logger configuration includes the custom name
+      assert.ok(fastify.log, 'Logger should be configured')
+
+      // Check that the custom logger name is present in the pino chindings
+      // Find the correct symbol key for chindings
+      const symbols = Object.getOwnPropertySymbols(fastify.log)
+      const chindingsSymbol = symbols.find(s => s.toString().includes('pino.chindings'))
+      const chindings = chindingsSymbol ? fastify.log[chindingsSymbol] : null
+      assert.ok(
+        chindings && chindings.includes(`"name":"${customLoggerName}"`),
+        `Logger chindings should contain custom name "${customLoggerName}". Got: ${chindings}`
+      )
+
+      // Test that a log message can be called without error
+      assert.doesNotThrow(() => {
+        fastify.log.info('Test message with custom logger name')
+      }, 'Logger should work with custom name configuration')
+
+      done()
     })
 
     done()

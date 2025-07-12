@@ -3,7 +3,7 @@
 
 import Fastify from 'fastify'
 import fp from 'fastify-plugin'
-import App from '../index.js'
+import App, { options } from '../index.js'
 
 // automatically build and tear down our instance
 export const build = (t, config = {}) => {
@@ -15,6 +15,20 @@ export const build = (t, config = {}) => {
   app.register(fp(App), config)
 
   // tear down our app after we are done
+  t.after(async () => {
+    await app.close()
+  })
+
+  return app
+}
+
+// build with custom fastify options (including logger)
+export const buildWithOptions = (t, config = {}) => {
+  const opts = options(config)
+  const app = Fastify(opts)
+
+  app.register(fp(App), config)
+
   t.after(async () => {
     await app.close()
   })

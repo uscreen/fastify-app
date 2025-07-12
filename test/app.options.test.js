@@ -54,4 +54,18 @@ test('options()', async (t) => {
       done()
     }
   )
+
+  await t.test(
+    'should use custom logger name when provided in config',
+    (t, done) => {
+      const customLoggerName = 'my-custom-app'
+      const opts = options({
+        logger: { name: customLoggerName }
+      })
+
+      assert.equal(typeof opts, 'object')
+      assert.equal(opts.logger.name, customLoggerName)
+      done()
+    }
+  )
 })
