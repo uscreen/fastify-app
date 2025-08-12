@@ -165,6 +165,22 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 3.2.0
+
+#### Fixed
+
+- fixed docs for custom healthcheck
+- fixed app.version in HTTP headers
+
+#### Changed
+
+- updated dependencies
+- upgraded helmet to v13.x, fastify v5.5.x
+
+#### Added
+
+- support for Node.js v24
+
 ### 3.1.0
 
 #### Added
