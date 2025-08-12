@@ -121,10 +121,10 @@ export default fp(async (fastify, opts, next) => {
   fastify.register(schemas)
 
   /**
-   * configure healthcheck
+   * configure healthCheck function for health
    */
-  opts.healthCheck = {
-    ...opts.healthCheck,
+  opts.health = {
+    ...opts.health,
 
     healthCheck: async () => {
       /**
