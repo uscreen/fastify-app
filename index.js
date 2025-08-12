@@ -195,7 +195,7 @@ export default fp(async (fastify, opts) => {
    */
   fastify.addHook('onSend', async (request, reply, payload) => {
     reply.header('X-Request-ID', request.id)
-    reply.header('x-Powered-By', `${fastify.name} ${fastify.version}`)
+    reply.header('x-Powered-By', `${fastify.name} ${fastify.app.version}`)
 
     // helmet changed defaults, @see https://github.com/helmetjs/helmet/issues/230
     reply.header('X-XSS-Protection', '1; mode=block')

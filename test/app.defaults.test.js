@@ -71,7 +71,7 @@ test('basic bootstrapping without custom config', (t, done) => {
             assert.equal(h['x-frame-options'], 'SAMEORIGIN')
             assert.equal(
               h['x-powered-by'],
-              `${fastify.name} ${fastify.version}`
+              `${fastify.name} ${fastify.app.version}`
             )
             assert.equal(
               h['strict-transport-security'],
