@@ -75,7 +75,7 @@ test('basic bootstrapping without custom config', (t, done) => {
             )
             assert.equal(
               h['strict-transport-security'],
-              'max-age=15552000; includeSubDomains'
+              'max-age=31536000; includeSubDomains'
             )
             assert.equal(h['x-download-options'], 'noopen')
             assert.equal(h['x-content-type-options'], 'nosniff')
