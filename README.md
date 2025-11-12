@@ -165,6 +165,13 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 3.3.0
+
+#### Changed
+
+- removed ci tests for Node.js v18
+- updated & upgraded dependencies
+
 ### 3.2.0
 
 #### Fixed
