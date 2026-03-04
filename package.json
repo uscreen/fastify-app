@@ -11,6 +11,9 @@
   },
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
   "license": "MIT",
+  "files": [
+    "config.js"
+  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint '**/*.js' --fix",
