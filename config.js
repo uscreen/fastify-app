@@ -60,7 +60,9 @@ const schema = {
 }
 
 export default (opts) => {
-  if (opts.healthCheck && !opts.health) opts.health = opts.healthCheck
+  if (opts.healthCheck && !opts.health) {
+    opts.health = opts.healthCheck
+  }
 
   const config = envSchema({
     schema,
@@ -68,8 +70,8 @@ export default (opts) => {
   })
 
   // set swagger route prefix to default, if not set:
-  config.swagger.routePrefix =
-    config.swagger.routePrefix ?? `${config.prefix}/docs`
+  config.swagger.routePrefix
+    = config.swagger.routePrefix ?? `${config.prefix}/docs`
 
   // set healthcheck route to default, if enabled, but not set:
   if (config.health.exposeStatusRoute === true) {

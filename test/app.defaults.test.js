@@ -1,5 +1,5 @@
-import test from 'node:test'
 import assert from 'node:assert/strict'
+import test from 'node:test'
 import { build } from './helper.js'
 
 test('basic bootstrapping without custom config', (t, done) => {

@@ -1,15 +1,15 @@
-import fs from 'fs'
-import path from 'path'
-import { readPackageUpSync } from 'read-package-up'
-import hyperid from 'hyperid'
-import fp from 'fastify-plugin'
+import fs from 'node:fs'
+import path from 'node:path'
+import autoload from '@fastify/autoload'
 import helmet from '@fastify/helmet'
 import sensible from '@fastify/sensible'
 import swagger from '@fastify/swagger'
-import ScalarApiReference from '@scalar/fastify-api-reference'
-import autoload from '@fastify/autoload'
 import underPressure from '@fastify/under-pressure'
+import ScalarApiReference from '@scalar/fastify-api-reference'
 import assign from 'assign-deep'
+import fp from 'fastify-plugin'
+import hyperid from 'hyperid'
+import { readPackageUpSync } from 'read-package-up'
 import configure from './config.js'
 
 const instance = hyperid({ urlSafe: true })
@@ -164,11 +164,12 @@ export default fp(async (fastify, opts) => {
    * @see https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#loading-order-of-your-plugins
    */
   for (const dir of config.autoloads) {
-    if (fs.existsSync(dir))
+    if (fs.existsSync(dir)) {
       fastify.register(autoload, {
         dir,
         options: config
       })
+    }
   }
 
   /**
@@ -181,7 +182,9 @@ export default fp(async (fastify, opts) => {
    */
   fastify.ready((err) => {
     /* c8 ignore next */
-    if (err) throw err
+    if (err) {
+      throw err
+    }
     fastify.log.debug(
       `${fastify.name} (${fastify.app.version}) ready. pwd: ${fastify.root}`
     )

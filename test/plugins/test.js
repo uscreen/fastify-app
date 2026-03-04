@@ -1,10 +1,10 @@
 import fp from 'fastify-plugin'
 
-export default fp(function (fastify, opts, next) {
-  fastify.decorate('something', function () {
+export default fp((fastify, opts, next) => {
+  fastify.decorate('something', () => {
     return 'works'
   })
-  fastify.decorate('getOptions', function () {
+  fastify.decorate('getOptions', () => {
     return opts
   })
   next()

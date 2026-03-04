@@ -1,3 +1,4 @@
+import process from 'node:process'
 import Fastify from 'fastify'
 import stringify from 'json-stringify-pretty-compact'
 
@@ -16,10 +17,12 @@ fastify.get('/', () => ({ hello: 'world' }))
 
 // some more optional verbose output on ready
 fastify.ready((err) => {
-  if (err) throw err
+  if (err) {
+    throw err
+  }
   fastify.log.debug(
-    'Application ready, routes are set:\n' +
-      fastify.printRoutes({ commonPrefix: false })
+    `Application ready, routes are set:\n${
+      fastify.printRoutes({ commonPrefix: false })}`
   )
   fastify.log.debug(`config ${stringify(fastify.config)}`)
 })

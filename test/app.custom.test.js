@@ -1,5 +1,5 @@
-import test from 'node:test'
 import assert from 'node:assert/strict'
+import test from 'node:test'
 import { build, buildWithOptions } from './helper.js'
 
 test('basic bootstrapping with some custom config and overwrites', (t, done) => {
@@ -99,7 +99,7 @@ test('basic bootstrapping with custom logger name', (t, done) => {
 
   const fastify = buildWithOptions(t, {
     logger: {
-      name: customLoggerName,
+      name: customLoggerName
     }
   })
 
