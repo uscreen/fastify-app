@@ -11,7 +11,17 @@ updates:
       interval: weekly
     target-branch: main
     ignore:
-      - dependency-name: '*'
+      - dependency-name: '@fastify/*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'fastify'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'fastify-plugin'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint-plugin-format'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@antfu/eslint-config'
         update-types: ['version-update:semver-major']
 
   - package-ecosystem: npm
