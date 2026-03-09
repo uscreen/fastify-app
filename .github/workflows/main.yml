@@ -5,9 +5,9 @@ name: Test CI
 
 on:
   push:
-    branches: [main, legacy]
+    branches: [main, v1.x, legacy]
   pull_request:
-    branches: [main, legacy]
+    branches: [main, v1.x, legacy]
 
 jobs:
   test:
