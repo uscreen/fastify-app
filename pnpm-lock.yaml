@@ -28,7 +28,7 @@ importers:
         version: 9.0.3
       '@scalar/fastify-api-reference':
         specifier: ^1.49.3
-        version: 1.53.1
+        version: 1.55.2
       assign-deep:
         specifier: ^1.0.1
         version: 1.0.1
@@ -151,8 +151,8 @@ packages:
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.29.2':
-    resolution: {integrity: sha512-4GgRzy/+fsBa72/RZVJmGKPmZu9Byn8o4MoLpmNe1m8ZfYnz5emHLQz3U4gLud6Zwl0RZIcgiLD7Uq7ySFuDLA==}
+  '@babel/parser@7.29.3':
+    resolution: {integrity: sha512-b3ctpQwp+PROvU/cttc4OYl4MzfJUWy6FZg+PMXfzmt/+39iHVF0sDfqay8TQM3JA2EUOyKcFZt75jWriQijsA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -462,36 +462,36 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@scalar/client-side-rendering@0.1.4':
-    resolution: {integrity: sha512-xriPrHrKs/FNQbMJTPWiP7bIualAobbJlzrDM5Tl+7nSgKMUUgpR60IcOphCsJ+iFcdOU/VTmjufBcOaVigDPg==}
+  '@scalar/client-side-rendering@0.1.7':
+    resolution: {integrity: sha512-IDzjKF93jrOljlvKBsLHXT1FPWgz56jFrMPC+iLihREp1qH8wF92mG8Zpakw8cURkEuw5WijRk0xNBP2moGyuw==}
     engines: {node: '>=22'}
 
-  '@scalar/fastify-api-reference@1.53.1':
-    resolution: {integrity: sha512-ZzIpazGG6xxpnhnX8SLKwAtF1eGUdtthlXH6N47dzUk3lmAALipr+PwRQcWG/XJaLblCtFodndDv7x3CBBgu5Q==}
+  '@scalar/fastify-api-reference@1.55.2':
+    resolution: {integrity: sha512-dPmhy/MiCKD5DQf9sF0y3jLINlGl9uyWazR5UCmWic2zgVekvIyKul76d6CaG4uIDDf0KP9+xxTgQwi+ae/oLg==}
     engines: {node: '>=22'}
 
-  '@scalar/helpers@0.5.3':
-    resolution: {integrity: sha512-PgQmhuV0oRoHtaqH0OhyCcSY9t35qm8ThNeuUMEAKeN+hW1ijBnJiUADpxaIfXPbLrpN9sjyYza0A16WFbLttg==}
+  '@scalar/helpers@0.6.0':
+    resolution: {integrity: sha512-pfSamAgBxqFeE8IpEG6uGkHlnPhY1CLeOTttV9+vKQbrBk5b7vvyTsUXv0Hz4kNU1TFrxcTTPE+Akn5S+jlTtQ==}
     engines: {node: '>=22'}
 
-  '@scalar/json-magic@0.12.9':
-    resolution: {integrity: sha512-wabHE3heo0usLlneDeOjMNs2ES8bREJ3ySc2WPiHIXdzAmy+ERU6g9Al4w3mwgJueOceAkIP6W+yY/DmSCI4uA==}
+  '@scalar/json-magic@0.12.12':
+    resolution: {integrity: sha512-F7q6mPlVdHntvEvlJPwzvA2E2fjxsNtMeSzODtcdhp4mdQndMqqxEhy0rKmRvk36Oka+9F/hl3EDG194BpNBGg==}
     engines: {node: '>=22'}
 
-  '@scalar/openapi-parser@0.26.1':
-    resolution: {integrity: sha512-ZEpaJWH+crwEINml3Jof/KP9orrDRnpVztujq9QZNCUC0QZ9DBOgFhGYVz1YSUFwsbJTWfDv03oCMwBlTQHkjQ==}
+  '@scalar/openapi-parser@0.28.2':
+    resolution: {integrity: sha512-SiOMmCfq6mRCin1hJJjx9gCpPOklPIS57ut2FidBx7NEMNyuUNPRhwVs/5uGL/X0P6m3cd1RKldCauWu4Z8rvw==}
     engines: {node: '>=22'}
 
   '@scalar/openapi-types@0.8.0':
     resolution: {integrity: sha512-WmaxVSfvY5K/TwcG2B2TU1WOe1As1uc2s7myswtP6dBlcjU3hM08SApxv/jmyGaCE8t4gO5BBhmHY4pDUfmr2g==}
     engines: {node: '>=22'}
 
-  '@scalar/openapi-upgrader@0.2.6':
-    resolution: {integrity: sha512-pvEmfSCDNYR4+lygidUqfo+shzyp4OSh9+UgK110rzA8Oot6WbJBM03Fuq3M255G7G6R9iXyfsebB7MBUocPkw==}
+  '@scalar/openapi-upgrader@0.2.7':
+    resolution: {integrity: sha512-sC/uLQOivfX+Oef2QhUpgmERL7KZc1z+hiYkcwZQaUyVOHh5e6OscW0skfzbxKPyJfQ6Ocv0Iom9wMToCGaAPw==}
     engines: {node: '>=22'}
 
-  '@scalar/types@0.9.3':
-    resolution: {integrity: sha512-/cEFjVa8PxRIDyhcWKh7McT8pm5O0kbafzd1jvpVq69sgIIq0gJ0P1sCcPye6qJ2k478PK7VmpK9FxZcr6D4Kw==}
+  '@scalar/types@0.9.6':
+    resolution: {integrity: sha512-UaCQQcscFTJdxZREE8KhUdSJgaDlc44TZbmWcZffs4m1hzqOvEI7lEBS13iBpLq7/cxUXFgyJdecywvNqJ0PkA==}
     engines: {node: '>=22'}
 
   '@sindresorhus/base62@1.0.0':
@@ -1204,6 +1204,9 @@ packages:
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
+  fast-uri@3.1.1:
+    resolution: {integrity: sha512-h2r7rcm6Ee/J8o0LD5djLuFVcfbZxhvho4vvsbeV0aMvXjUgqv4YpxpkEx0d68l6+IleVfLAdVEfhR7QNMkGHQ==}
+
   fastify-plugin@4.5.1:
     resolution: {integrity: sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==}
 
@@ -1650,13 +1653,13 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  nanoid@3.3.11:
-    resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
+  nanoid@3.3.12:
+    resolution: {integrity: sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.9:
-    resolution: {integrity: sha512-ZUvP7KeBLe3OZ1ypw6dI/TzYJuvHP77IM4Ry73waSQTLn8/g8rpdjfyVAh7t1/+FjBtG4lCP42MEbDxOsRpBMw==}
+  nanoid@5.1.11:
+    resolution: {integrity: sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -1788,8 +1791,8 @@ packages:
     resolution: {integrity: sha512-orRsuYpJVw8LdAwqqLykBj9ecS5/cRHlI5+nvTo8LcCKmzDmqVORXtOIYEEQuL9D4BxtA1lm5isAqzQZCoQ6Eg==}
     engines: {node: '>=4'}
 
-  postcss@8.5.12:
-    resolution: {integrity: sha512-W62t/Se6rA0Az3DfCL0AqJwXuKwBeYg6nOaIgzP+xZ7N5BFCI7DYi1qs6ygUYT6rvfi6t9k65UMLJC+PHZpDAA==}
+  postcss@8.5.14:
+    resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -2119,6 +2122,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-to-istanbul@9.3.0:
@@ -2171,6 +2175,11 @@ packages:
     engines: {node: '>= 14.6'}
     hasBin: true
 
+  yaml@2.8.4:
+    resolution: {integrity: sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
   yargs-parser@21.1.1:
     resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}
     engines: {node: '>=12'}
@@ -2183,8 +2192,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@4.3.6:
-    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -2258,7 +2267,7 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.28.5': {}
 
-  '@babel/parser@7.29.2':
+  '@babel/parser@7.29.3':
     dependencies:
       '@babel/types': 7.29.0
 
@@ -2531,51 +2540,51 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@scalar/client-side-rendering@0.1.4':
+  '@scalar/client-side-rendering@0.1.7':
     dependencies:
-      '@scalar/types': 0.9.3
+      '@scalar/types': 0.9.6
 
-  '@scalar/fastify-api-reference@1.53.1':
+  '@scalar/fastify-api-reference@1.55.2':
     dependencies:
-      '@scalar/client-side-rendering': 0.1.4
-      '@scalar/openapi-parser': 0.26.1
+      '@scalar/client-side-rendering': 0.1.7
+      '@scalar/openapi-parser': 0.28.2
       '@scalar/openapi-types': 0.8.0
       fastify-plugin: 4.5.1
       github-slugger: 2.0.0
 
-  '@scalar/helpers@0.5.3': {}
+  '@scalar/helpers@0.6.0': {}
 
-  '@scalar/json-magic@0.12.9':
+  '@scalar/json-magic@0.12.12':
     dependencies:
-      '@scalar/helpers': 0.5.3
+      '@scalar/helpers': 0.6.0
       pathe: 2.0.3
-      yaml: 2.8.3
+      yaml: 2.8.4
 
-  '@scalar/openapi-parser@0.26.1':
+  '@scalar/openapi-parser@0.28.2':
     dependencies:
-      '@scalar/helpers': 0.5.3
-      '@scalar/json-magic': 0.12.9
+      '@scalar/helpers': 0.6.0
+      '@scalar/json-magic': 0.12.12
       '@scalar/openapi-types': 0.8.0
-      '@scalar/openapi-upgrader': 0.2.6
+      '@scalar/openapi-upgrader': 0.2.7
       ajv: 8.20.0
       ajv-draft-04: 1.0.0(ajv@8.20.0)
       ajv-formats: 3.0.1(ajv@8.20.0)
       jsonpointer: 5.0.1
       leven: 4.1.0
-      yaml: 2.8.3
+      yaml: 2.8.4
 
   '@scalar/openapi-types@0.8.0': {}
 
-  '@scalar/openapi-upgrader@0.2.6':
+  '@scalar/openapi-upgrader@0.2.7':
     dependencies:
       '@scalar/openapi-types': 0.8.0
 
-  '@scalar/types@0.9.3':
+  '@scalar/types@0.9.6':
     dependencies:
-      '@scalar/helpers': 0.5.3
-      nanoid: 5.1.9
+      '@scalar/helpers': 0.6.0
+      nanoid: 5.1.11
       type-fest: 5.6.0
-      zod: 4.3.6
+      zod: 4.4.3
 
   '@sindresorhus/base62@1.0.0': {}
 
@@ -2792,7 +2801,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.29':
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.3
       '@vue/shared': 3.5.29
       entities: 7.0.1
       estree-walker: 2.0.2
@@ -2805,14 +2814,14 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.29':
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.3
       '@vue/compiler-core': 3.5.29
       '@vue/compiler-dom': 3.5.29
       '@vue/compiler-ssr': 3.5.29
       '@vue/shared': 3.5.29
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.12
+      postcss: 8.5.14
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.29':
@@ -2866,7 +2875,7 @@ snapshots:
   ajv@8.20.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.1.0
+      fast-uri: 3.1.1
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -3404,6 +3413,8 @@ snapshots:
   fast-safe-stringify@2.1.1: {}
 
   fast-uri@3.1.0: {}
+
+  fast-uri@3.1.1: {}
 
   fastify-plugin@4.5.1: {}
 
@@ -4013,9 +4024,9 @@ snapshots:
 
   ms@2.1.3: {}
 
-  nanoid@3.3.11: {}
+  nanoid@3.3.12: {}
 
-  nanoid@5.1.9: {}
+  nanoid@5.1.11: {}
 
   natural-compare@1.4.0: {}
 
@@ -4182,9 +4193,9 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss@8.5.12:
+  postcss@8.5.14:
     dependencies:
-      nanoid: 3.3.11
+      nanoid: 3.3.12
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -4528,6 +4539,8 @@ snapshots:
 
   yaml@2.8.3: {}
 
+  yaml@2.8.4: {}
+
   yargs-parser@21.1.1: {}
 
   yargs@17.7.2:
@@ -4542,6 +4555,6 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@4.3.6: {}
+  zod@4.4.3: {}
 
   zwitch@2.0.4: {}
