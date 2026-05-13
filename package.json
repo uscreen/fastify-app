@@ -1,7 +1,7 @@
 {
   "name": "@uscreen.de/fastify-app",
   "type": "module",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800",
   "description": "Opinionated combination of base packages to bootstrap a fastify app",
   "author": "Marcus Spiegel <spiegel@uscreen.de>",
