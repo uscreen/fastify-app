@@ -18,6 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture
 
 Two exports from `index.js`:
+
 - **Default export** — Fastify plugin that registers all feature plugins and decorates the instance with `app.name`, `app.version`, `app.root`, and `config`
 - **`options()` factory** — creates Fastify server options (logger via `@fastify/one-line-logger`, request ID via `hyperid`, `forceCloseConnections`, `trustProxy`)
 
