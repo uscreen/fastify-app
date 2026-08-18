@@ -34,7 +34,7 @@
     "@fastify/under-pressure": "^9.1.0",
     "@scalar/fastify-api-reference": "^1.64.1",
     "assign-deep": "^1.0.1",
-    "env-schema": "^7.0.0",
+    "env-schema": "^8.0.0",
     "fastify": "^5.11.3",
     "fastify-plugin": "^5.1.0",
     "hyperid": "^4.0.0",
