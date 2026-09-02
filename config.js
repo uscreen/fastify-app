@@ -40,10 +40,10 @@ const schema = {
           default: 1000
         },
         maxHeapUsedBytes: {
-          default: 128 * 1024 * 1024
+          default: 256 * 1024 * 1024
         },
         maxRssBytes: {
-          default: 256 * 1024 * 1024
+          default: 512 * 1024 * 1024
         },
         retryAfter: {
           default: 50
