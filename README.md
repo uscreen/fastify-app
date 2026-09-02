@@ -164,6 +164,10 @@ export default fp(async (fastify, opts, next) => {
 
 ## Changelog
 
+### 3.5.0
+
+- increased default under-pressure memory limits
+
 ### 3.3.0
 
 #### Changed
