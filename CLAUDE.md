@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- **Package manager**: `pnpm` only (enforced via preinstall hook — never use npm/yarn)
+- **Package manager**: `pnpm` only (never use npm/yarn)
 - **Run all tests**: `pnpm test`
 - **Run single test**: `node --test test/app.defaults.test.js`
 - **Coverage**: `pnpm test:cov` (HTML + text)

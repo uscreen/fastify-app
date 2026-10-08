@@ -5,7 +5,7 @@ Opinionated Fastify bootstrap package: combines security headers, OpenAPI docs, 
 ## Commands
 
 ### Package Manager
-- **CRITICAL**: Use `pnpm` ONLY (enforced by `only-allow` preinstall hook)
+- **CRITICAL**: Use `pnpm` ONLY
 - Never use `npm` or `yarn`
 
 ### Testing
