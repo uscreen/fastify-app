@@ -24,24 +24,6 @@ updates:
       - dependency-name: '@antfu/eslint-config'
         update-types: ['version-update:semver-major']
 
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-    target-branch: v1.x
-    ignore:
-      - dependency-name: '*'
-        update-types: ['version-update:semver-major']
-
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-    target-branch: legacy
-    ignore:
-      - dependency-name: '*'
-        update-types: ['version-update:semver-major']
-
   - package-ecosystem: github-actions
     directory: /
     schedule:
