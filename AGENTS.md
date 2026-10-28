@@ -160,7 +160,7 @@ test('description of test suite', (t, done) => {
 - `.editorconfig` — Editor formatting settings
 
 ## CI/CD
-- GitHub Actions: Node.js 20, 22, 24
+- GitHub Actions: Node.js 22, 24, 26
 - Coverage: Coveralls integration
 - Dependabot PRs auto-merge on success
 

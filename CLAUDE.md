@@ -39,4 +39,4 @@ Plugin registration order in the default export: swagger → Scalar UI → helme
 - Node.js built-in `node:test` + `node:assert/strict` (no external test frameworks)
 - `test/helper.js` provides `build(t, config)` and `buildWithOptions(t, config)` — creates Fastify instances with auto-teardown
 - Tests use callback pattern with `done()` and `fastify.inject()` for HTTP assertions
-- CI runs on Node.js 20, 22, 24
+- CI runs on Node.js 22, 24, 26
