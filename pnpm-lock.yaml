@@ -19,7 +19,7 @@ importers:
         version: 2.2.1
       '@fastify/sensible':
         specifier: ^6.0.7
-        version: 6.0.7
+        version: 6.0.8
       '@fastify/swagger':
         specifier: ^9.9.2
         version: 9.9.5
@@ -316,8 +316,8 @@ packages:
   '@fastify/proxy-addr@5.1.2':
     resolution: {integrity: sha512-uqB4QsgVoro0XDC+DIftIMGXHdBPn+lK6Ek3xXAIxPMCJfqxnbtyEoMCm2KPUVOuIosd7Cyw9HawEqMFM/UA+g==}
 
-  '@fastify/sensible@6.0.7':
-    resolution: {integrity: sha512-e4+bJEcAPGdKsIljulWtEKeECuYGLkVTB1dgWh19m2u4ttETS/5EWZhw6KPXlgi6ZiSet5IqYrcMRMrRub0Hrg==}
+  '@fastify/sensible@6.0.8':
+    resolution: {integrity: sha512-hc/q+esn+I0djWva/zplEOplZ8SECJBQ0Dx1/qUeOwITR+PTPcuLHNhgJf0fhZ+82Z6En5YhpQxqwIYXWIzerw==}
 
   '@fastify/swagger@9.9.5':
     resolution: {integrity: sha512-2X/MXoTv3Jhxegju9DwjOTKcDT86q0SDPIuuZDx9DHfRsHzpVfxVIXzP73X+qcEA1j7N+k7Cm95h9esGy/oBgA==}
@@ -2458,7 +2458,7 @@ snapshots:
       '@fastify/forwarded': 3.1.2
       ipaddr.js: 2.5.0
 
-  '@fastify/sensible@6.0.7':
+  '@fastify/sensible@6.0.8':
     dependencies:
       '@lukeed/ms': 2.0.2
       dequal: 2.0.3
