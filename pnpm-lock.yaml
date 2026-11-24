@@ -25,7 +25,7 @@ importers:
         version: 9.9.5
       '@fastify/under-pressure':
         specifier: ^9.2.1
-        version: 9.2.1
+        version: 9.2.2
       '@scalar/fastify-api-reference':
         specifier: ^1.76.0
         version: 1.82.1
@@ -298,6 +298,9 @@ packages:
   '@fastify/error@4.2.1':
     resolution: {integrity: sha512-MYBumuIwP+5MIpXSyKm6/o1Eigcoij186lWUssX3LH5U8KWqU0ktZhzC4CErIX9EJeQeRGI+zJZQWakBlFbUcg==}
 
+  '@fastify/error@4.3.0':
+    resolution: {integrity: sha512-mtIdc4R7HnUMOuUDQgnJkEF+Omr2p3JrSSJ44+RME/eAQ5TqdDy5MvXAjze/RyVHhJckuJKkXnMhKfPmFMKqyA==}
+
   '@fastify/fast-json-stringify-compiler@5.1.1':
     resolution: {integrity: sha512-pyxRKk7UpUnnrztP9pF4+ZYxusEQ4LifTyzRdiXmyql1QezNHxO02D25MVU2o4kMeAMYWAjG6RKRlojgkbiDAw==}
 
@@ -322,8 +325,8 @@ packages:
   '@fastify/swagger@9.9.5':
     resolution: {integrity: sha512-2X/MXoTv3Jhxegju9DwjOTKcDT86q0SDPIuuZDx9DHfRsHzpVfxVIXzP73X+qcEA1j7N+k7Cm95h9esGy/oBgA==}
 
-  '@fastify/under-pressure@9.2.1':
-    resolution: {integrity: sha512-eScrraL3PXJwWAfnpYVVDkctvl/RiQCnRahmsBS+ZhcQ6fy54beMc9Kom4NhlU4aYNgsl3J3ps4KBTndzHUkLQ==}
+  '@fastify/under-pressure@9.2.2':
+    resolution: {integrity: sha512-89/mvl3fWehCzJMs0o5hYl0kKovH222nSaW/w3T5Uutd/996zLvE75LT46sGSJRCucqhQKecgLc6Qwb88R4u2A==}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -2433,6 +2436,8 @@ snapshots:
 
   '@fastify/error@4.2.1': {}
 
+  '@fastify/error@4.3.0': {}
+
   '@fastify/fast-json-stringify-compiler@5.1.1':
     dependencies:
       fast-json-stringify: 7.3.1
@@ -2478,9 +2483,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@fastify/under-pressure@9.2.1':
+  '@fastify/under-pressure@9.2.2':
     dependencies:
-      '@fastify/error': 4.2.1
+      '@fastify/error': 4.3.0
       fastify-plugin: 6.0.1
 
   '@humanfs/core@0.19.2':
